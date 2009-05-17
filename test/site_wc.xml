@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcstatssummary [
+	<!ELEMENT wcstatssummary (error, site_wordcount, max, min, stddev, average, count)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT site_wordcount (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+]>
+<wcstatssummary>
+<site_wordcount>1643343993</site_wordcount>
+<max>999999</max>
+<min>0</min>
+<stddev>31313</stddev>
+<average>26100</average>
+<count>62963</count>
+</wcstatssummary>

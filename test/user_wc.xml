@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wc [
+	<!ELEMENT wc (uid, error, uname, user_wordcount)>
+	<!ELEMENT uid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT uname (#PCDATA)>
+	<!ELEMENT user_wordcount (#PCDATA)>
+]>
+<wc>
+<uid>240659</uid>
+<uname>hollowedout</uname>
+<user_wordcount>55415</user_wordcount>
+</wc>

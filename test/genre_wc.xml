@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcgenre [
+	<!ELEMENT wcgenre (gid, error, gname, genre_wordcount, max, min, stddev, average, count)>
+	<!ELEMENT gid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT gname (#PCDATA)>
+	<!ELEMENT genre_wordcount (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+]>
+<wcgenre>
+<gid>13</gid>
+<gname>Science Fiction</gname>
+<genre_wordcount>0</genre_wordcount>
+<max></max>
+<min></min>
+<stddev></stddev>
+<average></average>
+<count></count>
+</wcgenre>

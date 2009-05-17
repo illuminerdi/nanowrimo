@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/nanowrimo
+lib/nanowrimo.rb
+test/test_nanowrimo.rb
