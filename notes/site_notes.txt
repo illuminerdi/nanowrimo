@@ -1,0 +1,29 @@
+User URL Format:
+http://www.nanowrimo.org/eng/user/240659
+
+ID of div containing buddy information on an unprotected page
+tcontent3
+
+Indiv current wc
+http://www.nanowrimo.org/wordcount_api/wc/240659
+
+Indiv wc history
+http://www.nanowrimo.org/wordcount_api/wchistory/240659
+
+site wc
+http://www.nanowrimo.org/wordcount_api/wcstatssummary
+
+site wc history
+http://www.nanowrimo.org/wordcount_api/wcstats
+
+region wc
+http://www.nanowrimo.org/wordcount_api/wcregion/84
+
+region wc history
+http://www.nanowrimo.org/wordcount_api/wcregionhist/84
+
+genre wc
+http://www.nanowrimo.org/wordcount_api/wcgenre/5
+
+genre wc history
+http://www.nanowrimo.org/wordcount_api/wcgenrehist/5

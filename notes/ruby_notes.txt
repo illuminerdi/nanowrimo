@@ -1,0 +1,4 @@
+Some interesting methods for parsing xml, will use nokogiri, since rails site will probably use mechanize, unless I decide to make the gem handle finding writing buddies.
+http://railstips.org/2008/8/12/parsing-xml-with-ruby
+
+must remember this - when creating a subdir in lib for new classes in your gem, the Rakefile needs to be told to look in the ./lib folder as a starting point.

@@ -1,5 +1,6 @@
 # -*- ruby -*-
 
+$: << 'lib'
 require 'rubygems'
 require 'hoe'
 require './lib/nanowrimo.rb'
