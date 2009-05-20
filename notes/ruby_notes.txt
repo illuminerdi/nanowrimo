@@ -2,3 +2,5 @@ Some interesting methods for parsing xml, will use nokogiri, since rails site wi
 http://railstips.org/2008/8/12/parsing-xml-with-ruby
 
 must remember this - when creating a subdir in lib for new classes in your gem, the Rakefile needs to be told to look in the ./lib folder as a starting point.
+
+FakeWeb seems to be a better solution than FlexMock for mocking up network calls.

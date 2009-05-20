@@ -4,9 +4,16 @@ module Nanowrimo
   class User
     FIELDS = %w[uid uname user_wordcount]
     HISTORY_FIELDS = %w[]
-    attr_reader(*FIELDS)
+    attr_accessor(*FIELDS)
     def initialize uid
-      "Hello, world!"
+      @uid = uid
+    end
+    
+    def load
+      attribs = Nanowrimo.parse('wc', @uid, FIELDS)
+      FIELDS.each do |attrib|
+        self.send(:"#{attrib}=", attribs[attrib.intern])
+      end
     end
   end
 end

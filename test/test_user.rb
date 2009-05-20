@@ -13,12 +13,15 @@ class TestUser < Test::Unit::TestCase
     assert_equal expected, Nanowrimo::User::FIELDS
   end
   
-  def test_new_user_gets_data
-    assert @user.uid
+  def test_user_has_uid
     assert_equal 240659, @user.uid
+  end
+  
+  def test_user_gets_data
+    @user.load
     assert @user.uname
     assert_equal "hollowedout", @user.uname
     assert @user.user_wordcount
-    assert_equal 55415, @user.user_wordcount
+    assert_equal "55415", @user.user_wordcount
   end
 end
