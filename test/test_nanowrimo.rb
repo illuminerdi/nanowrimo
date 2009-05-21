@@ -19,7 +19,7 @@ class TestNanowrimo < Test::Unit::TestCase
     key = 240659
     file = "test/user_wc.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
-    actual = Nanowrimo.parse(type, key, params)
+    actual = Nanowrimo.parse(type, key, params).first
     expected = {
       :uid => "240659",
       :uname => "hollowedout",
@@ -34,7 +34,7 @@ class TestNanowrimo < Test::Unit::TestCase
     key = 240659
     file = "test/user_wc_history.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
-    data = Nanowrimo.parse_history(type, key, params)
+    data = Nanowrimo.parse(type, key, params)
     assert_equal 30, data.size
     data.each do |d|
       assert_equal 2, d.keys.size

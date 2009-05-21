@@ -10,7 +10,7 @@ module Nanowrimo
     end
     
     def load
-      attribs = Nanowrimo.parse('wc', @uid, FIELDS)
+      attribs = Nanowrimo.parse('wc', @uid, FIELDS).first
       FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
       end
