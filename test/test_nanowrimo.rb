@@ -14,12 +14,12 @@ class TestNanowrimo < Test::Unit::TestCase
   end
   
   def test_nanowrimo_parse_returns_hash_with_data
-    params = %w[uid uname user_wordcount]
-    type = "wc"
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
     key = 240659
     file = "test/fixtures/user_wc.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
-    actual = Nanowrimo.parse(type, key, params).first
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    actual = Nanowrimo.parse(path, key, attribs).first
     expected = {
       :uid => "240659",
       :uname => "hollowedout",
@@ -29,12 +29,12 @@ class TestNanowrimo < Test::Unit::TestCase
   end
   
   def test_nanowrimo_parse_history_returns_array_of_hashes_with_data
-    params = %w[wc wcdate]
-    type = "wchistory/wordcounts/wcentry"
+    attribs = %w[wc wcdate]
+    path = "wchistory/wordcounts/wcentry"
     key = 240659
     file = "test/fixtures/user_wc_history.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/#{key}", :file => file)
-    data = Nanowrimo.parse(type, key, params)
+    data = Nanowrimo.parse(path, key, attribs)
     assert_equal 30, data.size
     data.each do |d|
       assert_equal 2, d.keys.size

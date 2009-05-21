@@ -2,12 +2,11 @@
 
 require 'nanowrimo'
 require 'test/unit'
-require 'rubygems'
 require 'fakeweb'
 
 class TestUser < Test::Unit::TestCase
   def setup
-    @user = Nanowrimo::User.new(240659)
+    @user = Nanowrimo::User.new("240659")
   end
   
   def test_user_has_appropriate_fields
@@ -16,14 +15,12 @@ class TestUser < Test::Unit::TestCase
   end
   
   def test_user_has_uid
-    assert_equal 240659, @user.uid
+    assert_equal "240659", @user.uid
   end
   
   def test_user_gets_data
-    type = "wc"
-    key = @user.uid
     file = "test/fixtures/user_wc.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/240659", :file => file)
     @user.load
     assert @user.uname
     assert_equal "hollowedout", @user.uname
@@ -32,10 +29,8 @@ class TestUser < Test::Unit::TestCase
   end
   
   def test_user_loads_history_data
-    type = "wchistory/wordcounts/wcentry"
-    key = 240659
     file = "test/fixtures/user_wc_history.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/#{key}", :file => file)
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/240659", :file => file)
     @user.load_history
     assert @user.history
     assert_equal 30, @user.history.size
