@@ -22,7 +22,7 @@ Features:
 == REQUIREMENTS:
 
 * ruby 1.8.6
-* nokogiri 1.0.6
+* nokogiri 1.2.3
 
 == INSTALL:
 
