@@ -11,14 +11,14 @@ module Nanowrimo
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
   GOAL = 50_000
   
-  def self.parse(type, key, params)
-    method = type.split('/').first
+  def self.parse(path, key, attribs)
+    method = path.split('/').first
     file = "#{API_URI}/#{method}/#{key}"
     doc = Nokogiri::XML(open(file))
     result = []
-    doc.xpath(type).each {|n|
+    doc.xpath(path).each {|n|
       node = {}
-      params.each {|d|
+      attribs.each {|d|
         node[d.intern] = n.at(d).content
       }
       result << node
