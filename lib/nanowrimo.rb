@@ -21,4 +21,18 @@ module Nanowrimo
     }
     result
   end
+  
+  def self.parse_history(type, key, params)
+    file = "#{API_URI}/#{type}/#{key}"
+    doc = Nokogiri::XML(open(file))
+    result = []
+    doc.xpath(type).each {|n|
+      node = {}
+      params.each {|d|
+        node[d.intern] = n.at(d).content
+      }
+      result << node
+    }
+    result
+  end
 end

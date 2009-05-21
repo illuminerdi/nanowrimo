@@ -27,4 +27,19 @@ class TestNanowrimo < Test::Unit::TestCase
     }
     assert_equal expected, actual
   end
+  
+  def test_nanowrimo_parse_history_returns_array_of_hashes_with_data
+    params = %w[wc wcdate]
+    type = "wchistory/wordcounts/wcentry"
+    key = 240659
+    file = "test/user_wc_history.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
+    data = Nanowrimo.parse_history(type, key, params)
+    assert_equal 30, data.size
+    data.each do |d|
+      assert_equal 2, d.keys.size
+    end
+    expected = {:wc => "0", :wcdate => "2008-11-01"}
+    assert_equal expected, data.first
+  end
 end
