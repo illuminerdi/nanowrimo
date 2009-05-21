@@ -17,7 +17,7 @@ class TestNanowrimo < Test::Unit::TestCase
     params = %w[uid uname user_wordcount]
     type = "wc"
     key = 240659
-    file = "test/user_wc.xml"
+    file = "test/fixtures/user_wc.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
     actual = Nanowrimo.parse(type, key, params).first
     expected = {
@@ -32,8 +32,8 @@ class TestNanowrimo < Test::Unit::TestCase
     params = %w[wc wcdate]
     type = "wchistory/wordcounts/wcentry"
     key = 240659
-    file = "test/user_wc_history.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/#{type}/#{key}", :file => file)
+    file = "test/fixtures/user_wc_history.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/#{key}", :file => file)
     data = Nanowrimo.parse(type, key, params)
     assert_equal 30, data.size
     data.each do |d|
