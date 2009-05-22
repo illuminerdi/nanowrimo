@@ -15,9 +15,27 @@ Features:
 * Easy to roll into a Rails application (that's next)
 * Separate APIs for Users, Site, Regions, and Genres
 
+Problems:
+* The Genres API on Nanowrimo.org is a little broken right now, so there's not much data to be loaded.
+
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  >> me = Nanowrimo::User.new(240659)
+  => #<Nanowrimo::User:0x105b904 @uid=240659>
+  >> me.load
+  => ["uid", "uname", "user_wordcount"]
+  >> me.user_wordcount
+  => "55415"
+  >> me.winner?
+  => true
+  # YAY!
+  
+  # Want an array of day-by-day progress for yourself?
+  >> me.load_history
+  
+  # Want an array of day-by-day progress for your region?
+  >> my_region = Nanowrimo::Region.new(84)
+  >> my_region.load_history
 
 == REQUIREMENTS:
 

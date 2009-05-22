@@ -1,4 +1,9 @@
-=== 1.0.0 / 2009-05-17
+=== 0.5 / 2009-05-21
+
+* first major release
+* API is fully functional as a wrapper for the Nanowrimo API
+
+=== 0.1 / 2009-05-17
 
 * 1 major enhancement
 
