@@ -7,6 +7,7 @@ require 'open-uri'
 require 'nanowrimo/user'
 require 'nanowrimo/site'
 require 'nanowrimo/region'
+require 'nanowrimo/genre'
 
 module Nanowrimo
   VERSION = '0.1'
