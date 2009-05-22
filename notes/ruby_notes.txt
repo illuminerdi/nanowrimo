@@ -4,3 +4,12 @@ http://railstips.org/2008/8/12/parsing-xml-with-ruby
 must remember this - when creating a subdir in lib for new classes in your gem, the Rakefile needs to be told to look in the ./lib folder as a starting point.
 
 FakeWeb seems to be a better solution than FlexMock for mocking up network calls.
+
+FakeWeb is throwing the following set of errors when running tests with warnings:
+/Library/Ruby/Gems/1.8/gems/fakeweb-1.2.2/lib/fake_web/ext/net_http.rb:8: warning: method redefined; discarding old initialize
+/Library/Ruby/Gems/1.8/gems/fakeweb-1.2.2/lib/fake_web/ext/net_http.rb:28: warning: redefine socket_type
+
+If I insert the following line above line 8 of that net_http.rb in fakeweb, the warnings go away:
+alias :old_initialize :initialize
+
+I should probably submit this as a patch, since warnings are annoying.
