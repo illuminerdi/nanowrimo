@@ -2,7 +2,6 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
-bin/nanowrimo
 lib/nanowrimo.rb
 lib/nanowrimo/genre.rb
 lib/nanowrimo/region.rb
