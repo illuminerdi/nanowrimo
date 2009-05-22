@@ -9,18 +9,18 @@ module Nanowrimo
     def initialize uid
       @uid = uid
     end
-    
+
     def load
       attribs = Nanowrimo.parse('wc', @uid, FIELDS).first
       FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
       end
     end
-    
+
     def load_history
       @history = Nanowrimo.parse('wchistory/wordcounts/wcentry', @uid, HISTORY_FIELDS)
     end
-    
+
     def winner?
       self.user_wordcount.to_i >= Nanowrimo::GOAL
     end

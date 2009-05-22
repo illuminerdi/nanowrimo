@@ -13,7 +13,7 @@ module Nanowrimo
   VERSION = '0.1'
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
   GOAL = 50_000
-  
+
   def self.parse(path, key, attribs)
     method = path.split('/').first
     uri = "#{API_URI}/#{method}"

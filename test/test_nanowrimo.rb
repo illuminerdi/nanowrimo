@@ -5,14 +5,14 @@ require 'test/unit'
 require 'fakeweb'
 
 class TestNanowrimo < Test::Unit::TestCase
-  # the purpose for this test class is to make sure that Nanowrimo has a method to 
+  # the purpose for this test class is to make sure that Nanowrimo has a method to
   # open an xml document and parse it given a set of fields and a search string.
   # It's going to be a loose wrapper around Nokogiri which should keep the api DRY.
-  
+
   def test_nanowrimo_has_parse_method
     assert Nanowrimo.respond_to?(:parse)
   end
-  
+
   def test_nanowrimo_parse_returns_hash_with_data
     attribs = %w[uid uname user_wordcount]
     path = "wc"
@@ -27,7 +27,7 @@ class TestNanowrimo < Test::Unit::TestCase
     }
     assert_equal expected, actual
   end
-  
+
   def test_nanowrimo_parse_history_returns_array_of_hashes_with_data
     attribs = %w[wc wcdate]
     path = "wchistory/wordcounts/wcentry"

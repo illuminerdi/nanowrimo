@@ -9,14 +9,14 @@ module Nanowrimo
     def initialize(gid)
       @gid = gid
     end
-    
+
     def load
       attribs = Nanowrimo.parse('wcgenre', @gid, FIELDS).first
       FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
       end
     end
-    
+
     def load_history
       @history = Nanowrimo.parse('wcgenrehist/wordcounts/wcentry', @gid, HISTORY_FIELDS)
     end
