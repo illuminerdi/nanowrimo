@@ -14,6 +14,11 @@ class TestUser < Test::Unit::TestCase
     assert_equal expected, Nanowrimo::User::FIELDS
   end
   
+  def test_user_has_appropriate_historical_fields
+    expected = %w[wc wcdate]
+    assert_equal expected, Nanowrimo::User::HISTORY_FIELDS
+  end
+  
   def test_user_has_uid
     assert_equal "240659", @user.uid
   end
