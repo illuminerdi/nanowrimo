@@ -14,9 +14,9 @@ module Nanowrimo
   
   def self.parse(path, key, attribs)
     method = path.split('/').first
-    file = "#{API_URI}/#{method}"
-    file = "#{file}/#{key}" unless key.nil?
-    doc = Nokogiri::XML(open(file))
+    uri = "#{API_URI}/#{method}"
+    uri = "#{uri}/#{key}" unless key.nil?
+    doc = Nokogiri::XML(open(uri))
     result = []
     doc.xpath(path).each {|n|
       node = {}
