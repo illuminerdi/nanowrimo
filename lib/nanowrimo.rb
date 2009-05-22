@@ -5,6 +5,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 require 'nanowrimo/user'
+require 'nanowrimo/site'
 
 module Nanowrimo
   VERSION = '0.1'
