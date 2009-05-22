@@ -6,6 +6,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'nanowrimo/user'
 require 'nanowrimo/site'
+require 'nanowrimo/region'
 
 module Nanowrimo
   VERSION = '0.1'
