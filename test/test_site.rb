@@ -23,12 +23,9 @@ class TestSite < Test::Unit::TestCase
     file = 'test/fixtures/site_wc.xml'
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcstatssummary", :file => file)
     @site.load
-    assert @site.site_wordcount
-    assert @site.max
-    assert @site.min
-    assert @site.stddev
-    assert @site.average
-    assert @site.count
+    Nanowrimo::Site::FIELDS.each do |f|
+      assert @site.send(:"#{f}")
+    end
   end
   
   def test_site_loads_historical_data
