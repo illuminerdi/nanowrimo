@@ -12,4 +12,4 @@ FakeWeb is throwing the following set of errors when running tests with warnings
 If I insert the following line above line 8 of that net_http.rb in fakeweb, the warnings go away:
 alias :old_initialize :initialize
 
-I should probably submit this as a patch, since warnings are annoying.
+I should probably submit this as a patch, since warnings are annoying. Yay, I patched chrisk's codebase and submitted a polite pull request! Also joined the Google Group. 
