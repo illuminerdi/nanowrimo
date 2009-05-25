@@ -45,20 +45,55 @@ class TestUser < Test::Unit::TestCase
     @user.load
     assert @user.winner?
   end
+  
+  def test_user_has_profile_fields
+    expected = %w[rid novel genre buddies]
+    assert_equal expected, Nanowrimo::User::USER_FIELDS
+  end
+  
+  def test_profile_fields_default_properly
+    assert @user.novel.instance_of?(Hash)
+    assert @user.genre.instance_of?(Hash)
+    assert @user.buddies.instance_of?(Array)
+  end
+  
+  def test_user_load_profile_data
+    profile_uri_setup
+    @user.load_profile_page
+    assert_match /<div id="tcontent3"/, @user.profile_page.body
+  end
 
   def test_find_users_region
     # TODO: implement a method that scrapes the region_id from their nanowrimo profile page
+    profile_uri_setup
+    @user.parse_profile
+    assert_equal 84, @user.rid
   end
 
   def test_find_users_novel_title
     # TODO: implement a method that scrapes the novel title from their nanowrimo profile page
+    profile_uri_setup
+    @user.parse_profile
+    assert_equal "Interpolis", @user.novel[:title]
   end
 
   def test_find_users_genre
     # TODO: implement a method that scrapes the genre_id from their nanowrimo profile page
+    profie_uri_setup
+    @user.parse_profile
+    assert_equal "Science Fiction", @user.genre[:name]
   end
 
   def test_find_users_buddies
     # TODO: implement a method that scrapes the uids of all a given user's buddies from their nanowrimo profile page
+    profile_uri_setup
+    @user.parse_profile
+    assert @user.buddies.instance_of?(Array)
+    assert_equal 11, @user.buddies.size
+  end
+  
+  def profile_uri_setup
+    file = "test/fixtures/user_page.htm"
+    FakeWeb.register_uri("#{Nanowrimo::User::PROFILE_URI}/240659", :file => file)
   end
 end
