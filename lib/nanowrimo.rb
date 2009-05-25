@@ -2,7 +2,7 @@
 
 $: << 'lib'
 require 'rubygems'
-require 'nokogiri'
+require 'mechanize'
 require 'open-uri'
 require 'nanowrimo/user'
 require 'nanowrimo/site'
