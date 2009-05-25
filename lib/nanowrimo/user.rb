@@ -9,7 +9,7 @@ module Nanowrimo
 
     attr_accessor(*FIELDS)
     attr_accessor(*USER_FIELDS)
-    attr_accessor :history
+    attr_accessor :history, :profile_data
     def initialize uid
       @uid = uid
       @novel = {}
@@ -30,6 +30,11 @@ module Nanowrimo
 
     def winner?
       self.user_wordcount.to_i >= Nanowrimo::GOAL
+    end
+    
+    def load_profile_data
+      agent = WWW::Mechanize.new
+      @profile_data = agent.get("#{PROFILE_URI}/#{@uid}")
     end
   end
 end

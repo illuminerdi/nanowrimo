@@ -59,8 +59,8 @@ class TestUser < Test::Unit::TestCase
   
   def test_user_load_profile_data
     profile_uri_setup
-    @user.load_profile_page
-    assert_match /<div id="tcontent3"/, @user.profile_page.body
+    @user.load_profile_data
+    assert_match /<div id="tcontent3"/, @user.profile_data.body
   end
 
   def test_find_users_region
@@ -79,7 +79,7 @@ class TestUser < Test::Unit::TestCase
 
   def test_find_users_genre
     # TODO: implement a method that scrapes the genre_id from their nanowrimo profile page
-    profie_uri_setup
+    profile_uri_setup
     @user.parse_profile
     assert_equal "Science Fiction", @user.genre[:name]
   end
