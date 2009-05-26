@@ -1,3 +1,17 @@
+HTTP/1.0 200 OK
+Date: Tue, 26 May 2009 02:22:46 GMT
+Server: Apache/2.0.52 (CentOS)
+Accept-Ranges: bytes
+Content-Length: 19307
+Cache-Control: max-age=1
+Expires: Tue, 26 May 2009 02:22:47 GMT
+Content-Type: text/html; charset=utf-8
+X-Pad: avoid browser bug
+X-Cache: MISS from celebes.lettersandlight.org
+X-Cache-Lookup: MISS from celebes.lettersandlight.org:80
+Via: 1.0 celebes.lettersandlight.org:80 (squid/2.6.STABLE6)
+Connection: close
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="eng" xml:lang="eng">
 
@@ -13,7 +27,6 @@
   <style type="text/css" media="all">@import "/files/main/css/06ef6324eaec464dc953ace631390252.css";</style>
   <script type="text/javascript" src="/misc/jquery.js"></script>
 <script type="text/javascript" src="/misc/drupal.js"></script>
-<script type="text/javascript" src="/sites/all/modules/memcache/memcache_admin/memcache.js"></script>
 <script type="text/javascript" src="/sites/all/themes/nanowrimo/nanowrimo.js"></script>
 <script type="text/javascript" src="/sites/all/modules/img_assist/img_assist.js"></script>
   <!--
@@ -37,7 +50,7 @@
     <a href="/"><img src="/sites/all/themes/nanowrimo/images/header.gif" border="0" width="718" height="117" /></a>
   </div>
   <div align="center" id="bannerButton">
-      </div>
+    <a href="/user/register"><img src="/sites/all/themes/nanowrimo/images/button_signup.png" border="0" width="82" height="23" /></a>  </div>
   <!-- END Banner Image -->
 
   <div id="bannerSignIn">
@@ -46,22 +59,10 @@
         <div class="SignInMore">
   
 <ul>
-  <li>hollowedout</li>
-  <li><form action="/user/240659"  accept-charset="UTF-8" method="post" id="wordcount-block-form">
-<div><div class="form-item">
- <input type="text" maxlength="6" name="wordcount" id="edit-wordcount"  size="8" value="55415" disabled="disabled" class="form-text" />
-</div>
-<input type="submit" name="op" id="edit-submit" value="Update"  disabled="disabled" class="form-submit" />
-<input type="hidden" name="form_token" id="edit-wordcount-block-form-form-token" value="9f1e1bfccce05942847aec07fdded9ad"  />
-<input type="hidden" name="form_id" id="edit-wordcount-block-form" value="wordcount_block_form"  />
-
-</div></form>
-</li>
-  <li class="last"><a href="/logout">Log Out</a></li>
+  <li><a href="/user/register">Sign Up!</a></li>
+  <li><a href="/user">User Login</a></li>
+  <li class="last"><a href="/user/password">Lost Password?</a></li>
 </ul>
-
-
-<div class="wordcountmemo">NaNoWriMo 2008 is over</div>
 
 </div>
       </div>
@@ -102,20 +103,7 @@
 
 </ul>
 </li>
-<li class="expanded"><a href="/eng/mynanowrimo" title="My NaNoWriMo">My NaNoWriMo</a>
-<ul class="menu">
-<li class="leaf"><a href="/eng/wordcount/youwon" title="Winner&#039;s Page">Collect Winner Goodies</a></li>
-<li class="leaf"><a href="/eng/oll/my/settings" title="Edit User Settings">Edit User Settings</a></li>
-<li class="leaf"><a href="/eng/oll/my/author" title="Edit Author Info">Edit Author Info</a></li>
-<li class="leaf"><a href="/eng/oll/my/novel" title="Edit Novel Info">Edit Novel Info</a></li>
-<li class="leaf"><a href="/eng/buddylist">Writing Buddies</a></li>
-<li class="leaf"><a href="/eng/oll/my/regions" title="My Regions">My Regions</a></li>
-<li class="leaf"><a href="/eng/forum_select">Customize Forums</a></li>
-<li class="collapsed"><a href="/eng/privatemsg">Check &amp; Send NaNoMail</a></li>
-<li class="leaf"><a href="/eng/oll/my/subscriptions" title="Manage Notifications">Manage Notifications</a></li>
-
-</ul>
-</li>
+<li class="leaf"><a href="/eng/mynanowrimo" title="My NaNoWriMo">My NaNoWriMo</a></li>
 <li class="expanded"><a href="/eng/faq">FAQs</a>
 <ul class="menu">
 <li class="leaf"><a href="/eng/faq">FAQ</a></li>
@@ -177,27 +165,10 @@
 
 <br />
 
-<div class="authorlinks">
-<span class="navhead">My NaNoWriMo</span>
-<ul class="authorlinks authorwin">
-<li><a href="/eng/wordcount/youwon">Collect Winner Goodies</a></li>
-<li class="off">Verify & Win (Nov 25-30)</li>
-</ul>
-<span class="navhead">Edit Info:</span>
-<ul class="authorlinks">
-<ul>
-<li> <a href="/eng/user/240659/edit">User Settings</a></li>
-<li> <a href="/eng/user/240659/edit/author_info">Author Info</a></li>
-<li> <a href="/eng/user/240659/edit/novel_info">Novel Info</a></li>
-<li> <a href="/eng/buddylist">Writing Buddies</a></li>
-<li> <a href="/eng/og/my">My Regions</a></li>
-</ul>
-</ul>
-<ul class="authorlinks">
-<li><a href="/eng/forum_select">Customize Forums</a></li>
-<li><a href="/eng/privatemsg">Check &amp; Send NaNoMail</a></li>
-<li><a href="/eng/user/240659/subscriptions">Manage Notifications</a></li>
-</ul>
+<div class="links">
+<img src="/sites/all/themes/nanowrimo/profile/figure.gif" border="0" /> add as buddy<br />
+<img src="/sites/all/themes/nanowrimo/profile/envelope.gif" border="0" /> send NaNoMail<br />
+<a href="http://www.hollowedout.com"><img src="/sites/all/themes/nanowrimo/profile/external.gif" border="0" /> visit website</a><br />
 </div>
 
 <p><img src="/sites/all/themes/nanowrimo/images/spacer.gif" width="160" height="20" border="0" /></p>
@@ -419,9 +390,10 @@ Powered by <a href="http://www.drupal.org">Drupal</a>
     </p>
   </div>
   <!-- END Footer -->
-  <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script><script type="text/javascript">_uacct = "UA-635901-1";__utmSetVar('hollowedout');urchinTracker();</script>
+  <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script><script type="text/javascript">_uacct = "UA-635901-1";urchinTracker();</script>
 </div>  
 <!-- Close Auto Container -->
 </body>
 </html>
 </div>
+<!-- Page eng/user/240659 cached by Boost at 2009-05-25 17:51:51, expires at 2009-05-25 18:51:51 -->
