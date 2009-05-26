@@ -1,3 +1,8 @@
+=== 0.6 / 2009-05-25
+
+* page scraping in place for extra user data
+* not all functionality is useful for this, since profile pages have minimal data. submitted request for API changes to Nanowrimo.org crew.
+
 === 0.5 / 2009-05-21
 
 * first major release

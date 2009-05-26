@@ -14,9 +14,11 @@ Features:
 * Simple! Clean! Well-tested!
 * Easy to roll into a Rails application (that's next)
 * Separate APIs for Users, Site, Regions, and Genres
+* Page scraping place for basic user data from the profile page
 
 Problems:
 * The Genres API on Nanowrimo.org is a little broken right now, so there's not much data to be loaded.
+* Page scraping is dumb and costly. And the data I get is minimal. Submitted request for new API features with Nanowrimo.org crew.
 
 == SYNOPSIS:
 
@@ -40,11 +42,11 @@ Problems:
 == REQUIREMENTS:
 
 * ruby 1.8.6
-* nokogiri 1.2.3
+* mechanize 0.9.2
 
 == INSTALL:
 
-* Not there yet, just download and package and install. Soon!
+* sudo gem install illuminerdi-nanowrimo --source http://gems.github.com
 
 == LICENSE:
 
