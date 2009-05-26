@@ -8,18 +8,31 @@ require 'nanowrimo/user'
 require 'nanowrimo/site'
 require 'nanowrimo/region'
 require 'nanowrimo/genre'
+require 'nanowrimo/cache'
 
 module Nanowrimo
   VERSION = '0.6'
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
+  CACHE_FILE = './nano_cache'
+  DEFAULT_MAX_CACHE_AGE = (24*60*60) # 24 hours in seconds
   GOAL = 50_000
+  Nanowrimo::Cache.load_cache if Nanowrimo::Cache.cache_data == {}
 
   def self.parse(path, key, attribs)
+    result = data_from_cache(path, key, attribs) ||
+      data_from_internets(path, key, attribs)
+  end
+  
+  def self.data_from_cache(path, key, attribs)
+    nil
+  end
+  
+  def self.data_from_internets(path, key, attribs)
     method = path.split('/').first
     uri = "#{API_URI}/#{method}"
     uri = "#{uri}/#{key}" unless key.nil?
-    doc = Nokogiri::XML(open(uri))
     result = []
+    doc = Nokogiri::XML(open(uri))
     doc.xpath(path).each {|n|
       node = {}
       attribs.each {|d|
@@ -27,6 +40,12 @@ module Nanowrimo
       }
       result << node
     }
+    key = method if key.nil? # kinda hackish, but for the site stats
+    Nanowrimo::Cache.add_to_cache("#{method}","#{key}",result)
     result
   end
+  
+  at_exit {
+    Nanowrimo::Cache.save_cache_to_disk
+  }
 end
