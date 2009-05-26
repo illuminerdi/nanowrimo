@@ -10,7 +10,7 @@ require 'nanowrimo/region'
 require 'nanowrimo/genre'
 
 module Nanowrimo
-  VERSION = '0.5'
+  VERSION = '0.6'
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
   GOAL = 50_000
 
