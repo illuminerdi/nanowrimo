@@ -94,6 +94,6 @@ class TestUser < Test::Unit::TestCase
     # even then it would register the file from FakeWeb as WWW::Mechanize::File, not WWW::Mechanize::Page
     # discussion started at http://groups.google.com/group/fakeweb-users/browse_thread/thread/e01b6280e720ae6f
     file = File.read("test/fixtures/user_page.htm")
-    FakeWeb.register_uri("#{Nanowrimo::User::PROFILE_URI}/240659", :response => file)
+    FakeWeb.register_uri("http://www.nanowrimo.org/eng/user/240659", :response => file)
   end
 end
