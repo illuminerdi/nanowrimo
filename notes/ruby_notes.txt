@@ -13,3 +13,7 @@ If I insert the following line above line 8 of that net_http.rb in fakeweb, the 
 alias :old_initialize :initialize
 
 I should probably submit this as a patch, since warnings are annoying. Yay, I patched chrisk's codebase and submitted a polite pull request! Also joined the Google Group. 
+
+ChrisK is folding my fixes into the next release of FakeWeb, so awesomesauce.
+
+05/25 - noticed odd behavior with FakeWeb and Mechanize, finally got a work-around for this project, but started a conversation on the Google Group for FakeWeb detailing what I ran into and how I fixed it. Offered to bugfix if it was something other than me misunderstanding how the gem worked.

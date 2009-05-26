@@ -36,5 +36,23 @@ module Nanowrimo
       agent = WWW::Mechanize.new
       @profile_data = agent.get("#{PROFILE_URI}/#{@uid}")
     end
+    
+    def parse_profile
+      load_profile_data
+      # get the buddies
+      @profile_data.links.each do |link|
+        if link.href =~ /\/eng\/user/
+          @buddies << link.href.split('/').last
+        end
+      end
+      @buddies.uniq!
+      @buddies.delete @uid
+      # title and genre are in the same element
+      titlegenre = @profile_data.search("div[@class='titlegenre']").text.split("Genre:")
+      @genre[:name] = titlegenre.last.strip
+      @novel[:title] = titlegenre.first.gsub('Novel:','').strip
+      # finally, the region is annoying to grab
+      @rid = @profile_data.search("div[@class='infoleft']//a").first['href'].split('/').last
+    end
   end
 end

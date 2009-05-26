@@ -60,32 +60,29 @@ class TestUser < Test::Unit::TestCase
   def test_user_load_profile_data
     profile_uri_setup
     @user.load_profile_data
-    assert_match /<div id="tcontent3"/, @user.profile_data.body
+    assert @user.profile_data.instance_of?(WWW::Mechanize::Page)
+    assert_match(/<div id="tcontent3"/, @user.profile_data.body)
   end
 
   def test_find_users_region
-    # TODO: implement a method that scrapes the region_id from their nanowrimo profile page
     profile_uri_setup
     @user.parse_profile
-    assert_equal 84, @user.rid
+    assert_equal "84", @user.rid
   end
 
   def test_find_users_novel_title
-    # TODO: implement a method that scrapes the novel title from their nanowrimo profile page
     profile_uri_setup
     @user.parse_profile
     assert_equal "Interpolis", @user.novel[:title]
   end
 
   def test_find_users_genre
-    # TODO: implement a method that scrapes the genre_id from their nanowrimo profile page
     profile_uri_setup
     @user.parse_profile
     assert_equal "Science Fiction", @user.genre[:name]
   end
 
   def test_find_users_buddies
-    # TODO: implement a method that scrapes the uids of all a given user's buddies from their nanowrimo profile page
     profile_uri_setup
     @user.parse_profile
     assert @user.buddies.instance_of?(Array)
@@ -93,7 +90,10 @@ class TestUser < Test::Unit::TestCase
   end
   
   def profile_uri_setup
-    file = "test/fixtures/user_page.htm"
-    FakeWeb.register_uri("#{Nanowrimo::User::PROFILE_URI}/240659", :file => file)
+    # this was a bit of weirdness - I had to curl -is the url in order to grab the headers, and
+    # even then it would register the file from FakeWeb as WWW::Mechanize::File, not WWW::Mechanize::Page
+    # discussion started at http://groups.google.com/group/fakeweb-users/browse_thread/thread/e01b6280e720ae6f
+    file = File.read("test/fixtures/user_page.htm")
+    FakeWeb.register_uri("#{Nanowrimo::User::PROFILE_URI}/240659", :response => file)
   end
 end
