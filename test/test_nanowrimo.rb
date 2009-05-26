@@ -8,18 +8,63 @@ class TestNanowrimo < Test::Unit::TestCase
   # the purpose for this test class is to make sure that Nanowrimo has a method to
   # open an xml document and parse it given a set of fields and a search string.
   # It's going to be a loose wrapper around Nokogiri which should keep the api DRY.
+  
+  def setup
+    FakeWeb.allow_net_connect = false
+    FakeWeb.clean_registry
+  end
 
   def test_nanowrimo_has_parse_method
     assert Nanowrimo.respond_to?(:parse)
   end
+  
+  def test_nanowrimo_has_data_loading_methods
+    assert Nanowrimo.respond_to?(:data_from_cache)
+    assert Nanowrimo.respond_to?(:data_from_internets)
+  end
+  
+  def test_nanowrimo_data_load_from_internets_returns_hash_with_data
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
+    key = 240659
+    file = "test/fixtures/user_wc.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    actual = Nanowrimo.data_from_internets(path, key, attribs).first
+    expected = {
+      :uid => "240659",
+      :uname => "hollowedout",
+      :user_wordcount => "55415"
+    }
+    assert_equal expected, actual
+  end
 
-  def test_nanowrimo_parse_returns_hash_with_data
+  def test_nanowrimo_parse_does_the_same_as_data_from_internets
     attribs = %w[uid uname user_wordcount]
     path = "wc"
     key = 240659
     file = "test/fixtures/user_wc.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
     actual = Nanowrimo.parse(path, key, attribs).first
+    expected = {
+      :uid => "240659",
+      :uname => "hollowedout",
+      :user_wordcount => "55415"
+    }
+    assert_equal expected, actual
+  end
+
+  def test_nanowrimo_data_load_from_cache_returns_hash_with_data
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
+    key = 240659
+    file = "test/fixtures/user_wc.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    Nanowrimo.parse(path, key, attribs)
+    FakeWeb.clean_registry
+    actual = {}
+    assert_nothing_raised do
+      actual = Nanowrimo.parse(path, key, attribs).first
+    end
     expected = {
       :uid => "240659",
       :uname => "hollowedout",

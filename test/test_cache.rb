@@ -10,9 +10,9 @@ class TestCache < Test::Unit::TestCase
   end
   
   def test_write_cache_to_disk
-    File.delete(Nanowrimo::CACHE_FILE) if File.exist?(Nanowrimo::CACHE_FILE)
+    File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
     Nanowrimo::Cache.save_cache_to_disk
-    assert File.exist?(Nanowrimo::CACHE_FILE)
+    assert File.exist?(Nanowrimo::Cache::CACHE_FILE)
   end
   
   def test_add_to_cache

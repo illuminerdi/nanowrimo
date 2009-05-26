@@ -13,8 +13,6 @@ require 'nanowrimo/cache'
 module Nanowrimo
   VERSION = '0.6'
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
-  CACHE_FILE = './nano_cache'
-  DEFAULT_MAX_CACHE_AGE = (24*60*60) # 24 hours in seconds
   GOAL = 50_000
   Nanowrimo::Cache.load_cache if Nanowrimo::Cache.cache_data == {}
 
@@ -24,7 +22,12 @@ module Nanowrimo
   end
   
   def self.data_from_cache(path, key, attribs)
-    nil
+    Nanowrimo::Cache.cache_mutex.synchronize {
+      type = path.split('/').first
+      return nil unless Nanowrimo::Cache.cache_data["#{type}"]
+      return nil unless Nanowrimo::Cache.cache_data["#{type}"]["#{key}"]
+      Nanowrimo::Cache.cache_data["#{type}"]["#{key}"][:data]
+    }
   end
   
   def self.data_from_internets(path, key, attribs)
