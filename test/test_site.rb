@@ -24,7 +24,7 @@ class TestSite < Test::Unit::TestCase
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcstatssummary", :file => file)
     @site.load
     Nanowrimo::Site::FIELDS.each do |f|
-      assert @site.send(:"#{f}")
+      assert @site.send(:"#{f}"), "Failed on #{f}"
     end
   end
 

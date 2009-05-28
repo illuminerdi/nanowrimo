@@ -1,20 +1,21 @@
 #! /usr/bin/env ruby -w
 
 module Nanowrimo
-  class Site
+  class Site < Core
     FIELDS = %w[site_wordcount max min stddev average count]
     HISTORY_FIELDS = %w[wc wcdate max min stddev average count]
     attr_accessor(*FIELDS)
     attr_accessor :history
-    def load
-      attribs = Nanowrimo.parse('wcstatssummary', nil, FIELDS).first
-      FIELDS.each do |attrib|
-        self.send(:"#{attrib}=", attribs[attrib.intern])
-      end
+    def id
+      nil
     end
     
-    def load_history
-      @history = Nanowrimo.parse('wcstats/wordcounts/wcentry', nil, HISTORY_FIELDS)
+    def load_field
+      'wcstatssummary'
+    end
+    
+    def load_history_field
+      'wcstats/wordcounts/wcentry'
     end
   end
 end

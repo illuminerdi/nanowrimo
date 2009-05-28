@@ -52,12 +52,31 @@ class TestNanowrimo < Test::Unit::TestCase
     }
     assert_equal expected, actual
   end
-
-  def test_nanowrimo_data_load_from_cache_returns_hash_with_data
+  
+  def test_nanowrimo_data_from_cache_returns_hash_with_data
     attribs = %w[uid uname user_wordcount]
     path = "wc"
     key = 240659
     file = "test/fixtures/user_wc.xml"
+    File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    Nanowrimo.data_from_internets(path, key, attribs)
+    FakeWeb.clean_registry
+    actual = Nanowrimo.data_from_cache(path, key, attribs).first
+    expected = {
+      :uid => "240659",
+      :uname => "hollowedout",
+      :user_wordcount => "55415"
+    }
+    assert_equal expected, actual
+  end
+
+  def test_nanowrimo_parse_uses_cache_after_loading_from_internets_the_first_time
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
+    key = 240659
+    file = "test/fixtures/user_wc.xml"
+    File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
     Nanowrimo.parse(path, key, attribs)
     FakeWeb.clean_registry

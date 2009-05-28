@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby -w
 
 module Nanowrimo
-  class Region
+  class Region < Core
     FIELDS = %w[rid rname region_wordcount max min stddev average count donations numdonors]
     HISTORY_FIELDS = %w[wc wcdate max min stddev average count donations donors]
     attr_accessor(*FIELDS)
@@ -10,15 +10,16 @@ module Nanowrimo
       @rid = rid
     end
     
-    def load
-      attribs = Nanowrimo.parse('wcregion', @rid, FIELDS).first
-      FIELDS.each do |attrib|
-        self.send(:"#{attrib}=", attribs[attrib.intern])
-      end
+    def id
+      @rid
     end
     
-    def load_history
-      @history = Nanowrimo.parse('wcregionhist/wordcounts/wcentry',@rid,HISTORY_FIELDS)
+    def load_field
+      'wcregion'
+    end
+    
+    def load_history_field
+      'wcregionhist/wordcounts/wcentry'
     end
   end
 end

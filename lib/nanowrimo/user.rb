@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby -w
 
 module Nanowrimo
-  class User
+  class User < Core
     FIELDS = %w[uid uname user_wordcount]
     HISTORY_FIELDS = %w[wc wcdate]
     USER_FIELDS = %w[rid novel genre buddies]
@@ -17,36 +17,35 @@ module Nanowrimo
       @buddies = []
     end
 
-    def load
-      attribs = Nanowrimo.parse('wc', @uid, FIELDS).first
-      FIELDS.each do |attrib|
-        self.send(:"#{attrib}=", attribs[attrib.intern])
-      end
+    def id
+      @uid
     end
 
-    def load_history
-      @history = Nanowrimo.parse('wchistory/wordcounts/wcentry', @uid, HISTORY_FIELDS)
+    def load_field
+      'wc'
+    end
+
+    def load_history_field
+      'wchistory/wordcounts/wcentry'
     end
 
     def winner?
       self.user_wordcount.to_i >= Nanowrimo::GOAL
     end
-    
+
     def load_profile_data
+      # mechanize might be overkill, but at some point if they don't add more to the API
+      # I'll have to dig deeper behind the site's authentication layer in order to pull out
+      # some needed data.
       agent = WWW::Mechanize.new
       @profile_data = agent.get("#{PROFILE_URI}/#{@uid}")
     end
-    
+
     def parse_profile
       load_profile_data
       # get the buddies
-      @profile_data.links.each do |link|
-        if link.href =~ /\/eng\/user/
-          @buddies << link.href.split('/').last
-        end
-      end
-      @buddies.uniq!
-      @buddies.delete @uid
+      @buddies = @profile_data.search("div[@class='buddies']//a").map{|b| b['href'].split('/').last; }
+      @buddies.reject!{|b| b.to_i == 0}
       # title and genre are in the same element
       titlegenre = @profile_data.search("div[@class='titlegenre']").text.split("Genre:")
       @genre[:name] = titlegenre.last.strip
