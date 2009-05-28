@@ -4,6 +4,7 @@ $: << 'lib'
 require 'rubygems'
 require 'mechanize'
 require 'open-uri'
+require 'nanowrimo/core'
 require 'nanowrimo/user'
 require 'nanowrimo/site'
 require 'nanowrimo/region'
@@ -35,7 +36,13 @@ module Nanowrimo
     uri = "#{API_URI}/#{method}"
     uri = "#{uri}/#{key}" unless key.nil?
     result = []
-    doc = Nokogiri::XML(open(uri))
+    begin
+      timeout(2) {
+        doc = Nokogiri::XML(open(uri))        
+      }
+    rescue Timeout::Error
+      throw NanowrimoError, "Timed out attempting to connect to Nanowrimo.org"
+    end
     doc.xpath(path).each {|n|
       node = {}
       attribs.each {|d|
