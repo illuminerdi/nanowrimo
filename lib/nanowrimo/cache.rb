@@ -25,6 +25,16 @@ module Nanowrimo
       end
     end
 
+    def self.find_data(type, key)
+      @@cache_mutex.synchronize {
+        return nil unless @@cache_data["#{type}"]
+        return nil unless @@cache_data["#{type}"]["#{key}"]
+        if Time.now - @@cache_data["#{type}"]["#{key}"][:created_at] < DEFAULT_MAX_CACHE_AGE
+          @@cache_data["#{type}"]["#{key}"][:data]
+        end
+      }
+    end
+
     # For when the cache needs to be not in memory anymore.
     def self.save_cache_to_disk
       File.open(CACHE_FILE, 'w') do |out|

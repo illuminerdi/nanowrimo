@@ -62,7 +62,7 @@ class TestNanowrimo < Test::Unit::TestCase
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
     Nanowrimo.data_from_internets(path, key, attribs)
     FakeWeb.clean_registry
-    actual = Nanowrimo.data_from_cache(path, key, attribs).first
+    actual = Nanowrimo.data_from_cache(path, key).first
     expected = {
       :uid => "240659",
       :uname => "hollowedout",

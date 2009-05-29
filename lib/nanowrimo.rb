@@ -7,7 +7,6 @@
 # Copyright:: Copyright (c) 2009 Joshua Clingenpeel
 # License:: MIT License
 
-$: << 'lib'
 require 'rubygems'
 require 'mechanize'
 require 'open-uri'
@@ -33,22 +32,16 @@ module Nanowrimo
 
   # Pull requested data from cache or from the WCAPI
   def self.parse(path, key, attribs)
-    result = data_from_cache(path, key, attribs) ||
+    result = data_from_cache(path, key) ||
       data_from_internets(path, key, attribs)
   end
-  
+
   # Finds the data in the cache and returns it, or nil, taking into account age of cache data.
-  def self.data_from_cache(path, key, attribs)
-    Nanowrimo::Cache.cache_mutex.synchronize {
-      type = path.split('/').first
-      return nil unless Nanowrimo::Cache.cache_data["#{type}"]
-      return nil unless Nanowrimo::Cache.cache_data["#{type}"]["#{key}"]
-      if Time.now - Nanowrimo::Cache.cache_data["#{type}"]["#{key}"][:created_at] < Nanowrimo::Cache::DEFAULT_MAX_CACHE_AGE
-        Nanowrimo::Cache.cache_data["#{type}"]["#{key}"][:data]
-      end
-    }
+  def self.data_from_cache(path, key)
+    type = path.split('/').first
+    Nanowrimo::Cache.find_data(type, key)
   end
-  
+
   # Parses XML from the WCAPI and returns an array of hashes with the data. Caches it, too.
   def self.data_from_internets(path, key, attribs)
     type = path.split('/').first
@@ -57,24 +50,27 @@ module Nanowrimo
     result = []
     begin
       timeout(2) {
-        doc = Nokogiri::XML(open(uri))     
+        doc = Nokogiri::XML(open(uri))
         doc.xpath(path).each {|n|
           node = {}
           attribs.each {|d|
             node[d.intern] = n.at(d).content
           }
           result << node
-        }   
+        }
       }
     rescue Timeout::Error
       throw NanowrimoError, "Timed out attempting to connect to Nanowrimo.org"
     end
-    key ||= type # kinda hackish, but for the site stats
+    key ||= type # kinda hackish, but for the site stats it's needed
     Nanowrimo::Cache.add_to_cache("#{type}","#{key}",result)
     result
   end
-  
+
   at_exit {
     Nanowrimo::Cache.save_cache_to_disk
   }
 end
+
+# Generic error class
+class NanowrimoError < StandardError; end

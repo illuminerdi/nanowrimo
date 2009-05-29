@@ -22,4 +22,28 @@ class TestCache < Test::Unit::TestCase
     Nanowrimo::Cache.add_to_cache(type, key, data)
     assert_equal data, Nanowrimo::Cache.cache_data[type][key][:data]
   end
+
+  def test_find_data_returns_cached_data
+    type="foo"
+    key="bar"
+    data = [{:uid => "12345", :uname => "foo", :user_wordcount => "123456"}]
+    Nanowrimo::Cache.add_to_cache(type, key, data)
+    actual = Nanowrimo::Cache.find_data(type, key)
+    assert actual
+    assert "12345", actual.first[:uid]
+  end
+
+  def test_find_data_finds_nothing_for_type
+    type="bar"
+    key="foo"
+    actual = Nanowrimo::Cache.find_data(type, key)
+    assert actual.nil?
+  end
+
+  def test_find_data_finds_nothing_for_key
+    type="foo"
+    key="bar"
+    actual = Nanowrimo::Cache.find_data(type,key)
+    assert !actual.nil?
+  end
 end
