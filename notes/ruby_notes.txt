@@ -17,3 +17,9 @@ I should probably submit this as a patch, since warnings are annoying. Yay, I pa
 ChrisK is folding my fixes into the next release of FakeWeb, so awesomesauce.
 
 05/25 - noticed odd behavior with FakeWeb and Mechanize, finally got a work-around for this project, but started a conversation on the Google Group for FakeWeb detailing what I ran into and how I fixed it. Offered to bugfix if it was something other than me misunderstanding how the gem worked.
+
+I got a response on this. It was kinda vague, but ChrisK explained that there were many issues with how FakeWeb handled responses, and that he'd like to consolidate all the current available options (:string, :file, :response) into a single option, namely :body. String and File responses in FakeWeb right now set the content-type to nil, which doesn't make much sense at all.
+
+Caching data is annoying. I'm sure I did better on this project than I did on the apache log caching. Any advice on how to implement this would be appreciated.
+
+It looks like Mechanize handles its own caching?
