@@ -15,10 +15,12 @@ Features:
 * Easy to roll into a Rails application (that's next)
 * Separate APIs for Users, Site, Regions, and Genres
 * Page scraping place for basic user data from the profile page
+* Caches data to avoid November bandwidth issues
 
 Problems:
 * The Genres API on Nanowrimo.org is a little broken right now, so there's not much data to be loaded.
 * Page scraping is dumb and costly. And the data I get is minimal. Submitted request for new API features with Nanowrimo.org crew.
+* Caching is still fairly immature in this package. Need to tune it further before November hits.
 
 == SYNOPSIS:
 
@@ -46,7 +48,7 @@ Problems:
 
 == INSTALL:
 
-* sudo gem install illuminerdi-nanowrimo --source http://gems.github.com
+* sudo gem install nanowrimo
 
 == LICENSE:
 

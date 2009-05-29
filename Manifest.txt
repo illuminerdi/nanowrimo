@@ -3,12 +3,16 @@ Manifest.txt
 README.txt
 Rakefile
 lib/nanowrimo.rb
+lib/nanowrimo/cache.rb
+lib/nanowrimo/core.rb
 lib/nanowrimo/genre.rb
 lib/nanowrimo/region.rb
 lib/nanowrimo/site.rb
 lib/nanowrimo/user.rb
-test/test_nanowrimo.rb
+test/test_cache.rb
+test/test_core.rb
 test/test_genre.rb
+test/test_nanowrimo.rb
 test/test_region.rb
 test/test_site.rb
 test/test_user.rb

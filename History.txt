@@ -1,3 +1,9 @@
+=== 0.7 / 2009-05-29
+
+* Refactored many similar methods into a Nanowrimo::Core class per a suggestion from ZenSpider.
+* Implemented a basic caching mechanism. This isn't fully implemented yet, and will be tuned in future releases.
+* Documentation added to all classes.
+
 === 0.6 / 2009-05-25
 
 * page scraping in place for extra user data
