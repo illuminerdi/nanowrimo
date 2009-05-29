@@ -11,7 +11,7 @@ module Nanowrimo
       end
     end
 
-    # Returns the values for all attributes for a given WCAPI type's history    
+    # Returns the values for all attributes for a given WCAPI type's history
     def load_history
       self.history = Nanowrimo.parse(load_history_field,id,self.class::HISTORY_FIELDS)
     end

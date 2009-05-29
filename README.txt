@@ -31,10 +31,10 @@ Problems:
   >> me.winner?
   => true
   # YAY!
-  
+
   # Want an array of day-by-day progress for yourself?
   >> me.load_history
-  
+
   # Want an array of day-by-day progress for your region?
   >> my_region = Nanowrimo::Region.new(84)
   >> my_region.load_history

@@ -8,13 +8,13 @@ class TestCache < Test::Unit::TestCase
     assert Nanowrimo::Cache.cache_data
     assert Nanowrimo::Cache.cache_data.instance_of?(Hash)
   end
-  
+
   def test_write_cache_to_disk
     File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
     Nanowrimo::Cache.save_cache_to_disk
     assert File.exist?(Nanowrimo::Cache::CACHE_FILE)
   end
-  
+
   def test_add_to_cache
     type="foo"
     key="bar"

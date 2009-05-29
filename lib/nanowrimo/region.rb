@@ -24,7 +24,7 @@ module Nanowrimo
       'wcregion'
     end
 
-    # converts the WCAPI history path for this type into something Nanowrimo::Core-friendly    
+    # converts the WCAPI history path for this type into something Nanowrimo::Core-friendly
     def load_history_field
       'wcregionhist/wordcounts/wcentry'
     end
