@@ -1,15 +1,21 @@
 #! /usr/bin/env ruby -w
 
 module Nanowrimo
+  # Handles Nanowrimo User data.
   class User < Core
+    # fields expected from the main User WCAPI
     FIELDS = %w[uid uname user_wordcount]
+    # history fields expected from the User History WCAPI
     HISTORY_FIELDS = %w[wc wcdate]
+    # fields needed to store data ripped from a user's profile page
     USER_FIELDS = %w[rid novel genre buddies]
+    # profile page base URI
     PROFILE_URI = "http://www.nanowrimo.org/eng/user"
 
     attr_accessor(*FIELDS)
     attr_accessor(*USER_FIELDS)
     attr_accessor :history, :profile_data
+    # creates a new User object
     def initialize uid
       @uid = uid
       @novel = {}
@@ -17,22 +23,27 @@ module Nanowrimo
       @buddies = []
     end
 
+    # converts the WCAPI 'uid' into a Nanowrimo::Core-friendly 'id'
     def id
       @uid
     end
 
+    # converts the WCAPI path for this type into something Nanowrimo::Core-friendly
     def load_field
       'wc'
     end
 
+    # converts the WCAPI history path for this type into something Nanowrimo::Core-friendly
     def load_history_field
       'wchistory/wordcounts/wcentry'
     end
 
+    # Determines if the User's current wordcount meets the month's goal.
     def winner?
       self.user_wordcount.to_i >= Nanowrimo::GOAL
     end
 
+    # Method to pull down a WWW::Mechanize::Page instance of the User's profile page
     def load_profile_data
       # mechanize might be overkill, but at some point if they don't add more to the API
       # I'll have to dig deeper behind the site's authentication layer in order to pull out
@@ -41,6 +52,7 @@ module Nanowrimo
       @profile_data = agent.get("#{PROFILE_URI}/#{@uid}")
     end
 
+    # Parses the profile page data pulling out extra information for the User.
     def parse_profile
       load_profile_data
       # get the buddies
