@@ -1,5 +1,6 @@
 = nanowrimo
 
+* http://nanowrimo.rubyforge.org
 * http://github.com/illuminerdi/nanowrimo
 * http://www.nanowrimo.org
 
