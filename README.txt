@@ -33,6 +33,11 @@ Problems:
   >> me.winner?
   => true
   # YAY!
+  
+  # Want to get a list of your writing buddies?
+  >> me.parse_profile
+  >> me.buddies
+  => ["94450", "208549", "236224", "244939", "301080", "405136", "139709", "229531", "240149", "245095", "309620"]
 
   # Want an array of day-by-day progress for yourself?
   >> me.load_history
