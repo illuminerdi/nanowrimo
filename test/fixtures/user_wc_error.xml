@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wc [
+	<!ELEMENT wc (uid, error, uname, user_wordcount)>
+	<!ELEMENT uid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT uname (#PCDATA)>
+	<!ELEMENT user_wordcount (#PCDATA)>
+]>
+<wc>
+<uid>999999</uid>
+<error>user not found or is inactive</error>
+</wc>
