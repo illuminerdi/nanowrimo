@@ -106,4 +106,18 @@ class TestNanowrimo < Test::Unit::TestCase
     expected = {:wc => "0", :wcdate => "2008-11-01"}
     assert_equal expected, data.first
   end
+  
+  def test_nanowrimo_parse_handles_wcapi_error_message
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
+    key = 999999
+    file = "test/fixtures/user_wc_error.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    actual = Nanowrimo.data_from_internets(path, key, attribs).first
+    expected = {
+      :uid => "999999",
+      :error => "user not found or is inactive"
+    }
+    assert_equal expected, actual
+  end
 end

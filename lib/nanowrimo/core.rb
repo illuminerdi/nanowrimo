@@ -3,17 +3,26 @@
 module Nanowrimo
   # Core load methods
   class Core
+    # attribute for storing error message returned by WCAPI on any response.
+    attr_accessor :error
+    
     # Returns the values for all attributes for a given WCAPI type
     def load
       attribs = Nanowrimo.parse(load_field,id,self.class::FIELDS).first
       self.class::FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
+        self.error = attribs[:error] unless attribs[:error].nil?
       end
     end
 
     # Returns the values for all attributes for a given WCAPI type's history
     def load_history
       self.history = Nanowrimo.parse(load_history_field,id,self.class::HISTORY_FIELDS)
+    end
+    
+    # Tells us if the current object has any errors from the WCAPI
+    def has_error?
+      !error.nil?
     end
   end
 end

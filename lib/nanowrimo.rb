@@ -54,8 +54,9 @@ module Nanowrimo
         doc.xpath(path).each {|n|
           node = {}
           attribs.each {|d|
-            node[d.intern] = n.at(d).content
+            node[d.intern] = n.at(d).content unless n.at(d).nil?
           }
+          node[:error] = n.at("error").content unless n.at("error").nil?
           result << node
         }
       }

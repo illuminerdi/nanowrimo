@@ -13,4 +13,16 @@ class TestCore < Test::Unit::TestCase
   def test_core_has_load_history_method
     assert Nanowrimo::Core.new.respond_to?(:load_history)
   end
+  
+  def test_core_has_error_attribute
+    assert Nanowrimo::Core.new.respond_to?(:error)
+    assert Nanowrimo::Core.new.respond_to?(:error=)
+  end
+  
+  def test_core_has_error_works
+    actual = Nanowrimo::Core.new
+    assert actual.respond_to?(:has_error?)
+    actual.error = "Foo"
+    assert actual.has_error?
+  end
 end

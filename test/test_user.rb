@@ -89,6 +89,15 @@ class TestUser < Test::Unit::TestCase
     assert_equal 11, @user.buddies.size
   end
   
+  def test_unknown_user_produces_error_data
+   bad_user = Nanowrimo::User.new("999999")
+   file = "test/fixtures/user_wc_error.xml"
+   FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/999999", :file => file)
+   bad_user.load
+   assert bad_user.has_error?
+   assert_equal "user not found or is inactive", bad_user.error
+  end
+  
   def profile_uri_setup
     # this was a bit of weirdness - I had to curl -is the url in order to grab the headers, and
     # even then it would register the file from FakeWeb as WWW::Mechanize::File, not WWW::Mechanize::Page
