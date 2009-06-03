@@ -7,6 +7,7 @@ require 'fakeweb'
 class TestUser < Test::Unit::TestCase
   def setup
     @user = Nanowrimo::User.new("240659")
+    FakeWeb.allow_net_connect = false
   end
 
   def test_user_has_appropriate_fields
@@ -96,6 +97,15 @@ class TestUser < Test::Unit::TestCase
    bad_user.load
    assert bad_user.has_error?
    assert_equal "user not found or is inactive", bad_user.error
+  end
+  
+  def test_unknown_user_produces_historical_error_data
+    bad_user = Nanowrimo::User.new("999999")
+    file = "test/fixtures/user_wc_history_error.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/999999", :file => file)
+    bad_user.load_history
+    assert bad_user.has_error?
+    assert_equal "user not found or is inactive", bad_user.error 
   end
   
   def profile_uri_setup

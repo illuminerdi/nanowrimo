@@ -115,7 +115,6 @@ class TestNanowrimo < Test::Unit::TestCase
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
     actual = Nanowrimo.data_from_internets(path, key, attribs).first
     expected = {
-      :uid => "999999",
       :error => "user not found or is inactive"
     }
     assert_equal expected, actual

@@ -51,12 +51,15 @@ module Nanowrimo
     begin
       timeout(2) {
         doc = Nokogiri::XML(open(uri))
+        doc.xpath("#{type}/error").each {|e|
+          result << {:error => e.content}
+        }
+        return result unless result.empty?
         doc.xpath(path).each {|n|
           node = {}
           attribs.each {|d|
             node[d.intern] = n.at(d).content unless n.at(d).nil?
           }
-          node[:error] = n.at("error").content unless n.at("error").nil?
           result << node
         }
       }
