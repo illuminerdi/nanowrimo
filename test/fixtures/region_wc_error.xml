@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcregion [
+	<!ELEMENT wcregion (rid, error, rname, region_wordcount, max, min, stddev, average, count, donations, numdonors)>
+	<!ELEMENT rid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT rname (#PCDATA)>
+	<!ELEMENT region_wordcount (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+	<!ELEMENT donations (#PCDATA)>
+	<!ELEMENT numdonors (#PCDATA)>
+]>
+<wcregion>
+<rid>999999</rid>
+<error>region not found</error>
+</wcregion>

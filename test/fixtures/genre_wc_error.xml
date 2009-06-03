@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcgenre [
+	<!ELEMENT wcgenre (gid, error, gname, genre_wordcount, max, min, stddev, average, count)>
+	<!ELEMENT gid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT gname (#PCDATA)>
+	<!ELEMENT genre_wordcount (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+]>
+<wcgenre>
+<gid>999999</gid>
+<error>genre not found</error>
+</wcgenre>

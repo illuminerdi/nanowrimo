@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcregionhist [
+	<!ELEMENT wcregionhist (rid, error, rname, region_wordcount, wordcounts)>
+	<!ELEMENT rid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT rname (#PCDATA)>
+	<!ELEMENT region_wordcount (#PCDATA)>
+	<!ELEMENT wordcounts (wcentry+)>
+	<!ELEMENT wcentry (wc, wcdate, max, min, stddev, average, count, donations, numdonors)>
+	<!ELEMENT wc (#PCDATA)>
+	<!ELEMENT wcdate (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+	<!ELEMENT donations (#PCDATA)>
+	<!ELEMENT numdonors (#PCDATA)>
+]>
+<wcregionhist>
+<rid>999999</rid>
+<error>region not found</error>
+</wcregionhist>

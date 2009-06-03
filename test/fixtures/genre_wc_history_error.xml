@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wcgenrehist [
+	<!ELEMENT wcgenrehist (gid, error, gname, genre_wordcount, wordcounts)>
+	<!ELEMENT gid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT gname (#PCDATA)>
+	<!ELEMENT genre_wordcount (#PCDATA)>
+	<!ELEMENT wordcounts (wcentry+)>
+	<!ELEMENT wcentry (wc, wcdate, max, min, stddev, average, count)>
+	<!ELEMENT wc (#PCDATA)>
+	<!ELEMENT wcdate (#PCDATA)>
+	<!ELEMENT max (#PCDATA)>
+	<!ELEMENT min (#PCDATA)>
+	<!ELEMENT stddev (#PCDATA)>
+	<!ELEMENT average (#PCDATA)>
+	<!ELEMENT count (#PCDATA)>
+]>
+<wcgenrehist>
+<gid>999999</gid>
+<error>genre not found</error>
+</wcgenrehist>
