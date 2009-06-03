@@ -23,7 +23,7 @@ require 'nanowrimo/cache'
 
 module Nanowrimo
   # Current API version
-  VERSION = '0.7'
+  VERSION = '0.7.5'
   # Current static root WCAPI uri
   API_URI = 'http://www.nanowrimo.org/wordcount_api'
   # Current individual user word count goal. For fun!

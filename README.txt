@@ -15,6 +15,7 @@ Features:
 * Simple! Clean! Well-tested!
 * Easy to roll into a Rails application (that's next)
 * Separate APIs for Users, Site, Regions, and Genres
+* API handles generated error messages from the WCAPI
 * Page scraping place for basic user data from the profile page
 * Caches data to avoid November bandwidth issues
 
@@ -34,7 +35,7 @@ Problems:
   >> me.winner?
   => true
   # YAY!
-  
+
   # Want to get a list of your writing buddies?
   >> me.parse_profile
   >> me.buddies
