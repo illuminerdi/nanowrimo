@@ -106,7 +106,7 @@ class TestNanowrimo < Test::Unit::TestCase
     expected = {:wc => "0", :wcdate => "2008-11-01"}
     assert_equal expected, data.first
   end
-  
+
   def test_nanowrimo_parse_handles_wcapi_error_message
     attribs = %w[uid uname user_wordcount]
     path = "wc"

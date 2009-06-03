@@ -46,18 +46,18 @@ class TestUser < Test::Unit::TestCase
     @user.load
     assert @user.winner?
   end
-  
+
   def test_user_has_profile_fields
     expected = %w[rid novel genre buddies]
     assert_equal expected, Nanowrimo::User::USER_FIELDS
   end
-  
+
   def test_profile_fields_default_properly
     assert @user.novel.instance_of?(Hash)
     assert @user.genre.instance_of?(Hash)
     assert @user.buddies.instance_of?(Array)
   end
-  
+
   def test_user_load_profile_data
     profile_uri_setup
     @user.load_profile_data
@@ -89,7 +89,7 @@ class TestUser < Test::Unit::TestCase
     assert @user.buddies.instance_of?(Array)
     assert_equal 11, @user.buddies.size
   end
-  
+
   def test_unknown_user_produces_error_data
    bad_user = Nanowrimo::User.new("999999")
    file = "test/fixtures/user_wc_error.xml"
@@ -98,16 +98,16 @@ class TestUser < Test::Unit::TestCase
    assert bad_user.has_error?
    assert_equal "user not found or is inactive", bad_user.error
   end
-  
+
   def test_unknown_user_produces_historical_error_data
     bad_user = Nanowrimo::User.new("999999")
     file = "test/fixtures/user_wc_history_error.xml"
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/999999", :file => file)
     bad_user.load_history
     assert bad_user.has_error?
-    assert_equal "user not found or is inactive", bad_user.error 
+    assert_equal "user not found or is inactive", bad_user.error
   end
-  
+
   def profile_uri_setup
     # this was a bit of weirdness - I had to curl -is the url in order to grab the headers, and
     # even then it would register the file from FakeWeb as WWW::Mechanize::File, not WWW::Mechanize::Page

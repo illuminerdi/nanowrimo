@@ -5,13 +5,13 @@ module Nanowrimo
   class Core
     # attribute for storing error message returned by WCAPI on any response.
     attr_accessor :error
-    
+
     # Returns the values for all attributes for a given WCAPI type
     def load
       attribs = Nanowrimo.parse(load_field,id,self.class::FIELDS).first
+      self.error = attribs[:error]
       self.class::FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
-        self.error = attribs[:error]
       end
     end
 
@@ -22,7 +22,7 @@ module Nanowrimo
         self.error = maybe_error[:error]
       end
     end
-    
+
     # Tells us if the current object has any errors from the WCAPI
     def has_error?
       !error.nil?
