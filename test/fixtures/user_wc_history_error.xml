@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?><!DOCTYPE wchistory [
+	<!ELEMENT wchistory (uid, error, uname, user_wordcount, wordcounts)>
+	<!ELEMENT uid (#PCDATA)>
+	<!ELEMENT error (#PCDATA)>
+	<!ELEMENT uname (#PCDATA)>
+	<!ELEMENT user_wordcount (#PCDATA)>
+	<!ELEMENT wordcounts (wcentry+)>
+	<!ELEMENT wcentry (wc,wcdate)>
+	<!ELEMENT wc (#PCDATA)>
+	<!ELEMENT wcdate (#PCDATA)>
+]>
+<wchistory>
+<uid>999999</uid>
+<error>user not found or is inactive</error>
+</wchistory>
