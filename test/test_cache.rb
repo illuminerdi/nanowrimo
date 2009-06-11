@@ -41,9 +41,15 @@ class TestCache < Test::Unit::TestCase
   end
 
   def test_find_data_finds_nothing_for_key
-    type="foo"
-    key="bar"
+    type="foo2"
+    key="bar2"
     actual = Nanowrimo::Cache.find_data(type,key)
-    assert !actual.nil?
+    assert actual.nil?
+  end
+
+  def test_clear_cache_clears_cache
+    assert Nanowrimo::Cache.find_data("foo","bar")
+    Nanowrimo::Cache.clear_cache
+    assert Nanowrimo::Cache.cache_data.empty?
   end
 end

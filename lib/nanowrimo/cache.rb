@@ -48,5 +48,10 @@ module Nanowrimo
         @@cache_data["#{type}"] = {"#{key}" => Hash[:data, data, :created_at, Time.now]}
       }
     end
+
+    # Clears all cache from memory, will of course write that out to disk
+    def self.clear_cache
+      @@cache_data.clear
+    end
   end
 end
