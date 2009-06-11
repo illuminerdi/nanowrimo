@@ -119,4 +119,17 @@ class TestNanowrimo < Test::Unit::TestCase
     }
     assert_equal expected, actual
   end
+
+  def test_nanowrimo_parse_handles_forced_internet_data
+    attribs = %w[uid uname user_wordcount]
+    path = "wc"
+    key = 999999
+    file = "test/fixtures/user_wc_error.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    data = Nanowrimo.parse(path, key, attribs)
+    FakeWeb.clean_registry
+    assert_raise FakeWeb::NetConnectNotAllowedError do
+      Nanowrimo.parse(path, key, attribs, {:force => true})
+    end
+  end
 end

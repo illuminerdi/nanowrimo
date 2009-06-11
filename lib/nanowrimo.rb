@@ -31,8 +31,8 @@ module Nanowrimo
   Nanowrimo::Cache.load_cache if Nanowrimo::Cache.cache_data == {}
 
   # Pull requested data from cache or from the WCAPI
-  def self.parse(path, key, attribs)
-    result = data_from_cache(path, key) ||
+  def self.parse(path, key, attribs, options={:force => false})
+    result = options[:force] == true ? data_from_internets(path, key, attribs) : data_from_cache(path, key) ||
       data_from_internets(path, key, attribs)
   end
 

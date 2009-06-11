@@ -7,8 +7,9 @@ module Nanowrimo
     attr_accessor :error
 
     # Returns the values for all attributes for a given WCAPI type
-    def load
-      attribs = Nanowrimo.parse(load_field,id,self.class::FIELDS).first
+    def load(options={:force => false})
+
+      attribs = Nanowrimo.parse(load_field,id,self.class::FIELDS,:force => options[:force]).first
       self.error = attribs[:error]
       self.class::FIELDS.each do |attrib|
         self.send(:"#{attrib}=", attribs[attrib.intern])
@@ -16,8 +17,10 @@ module Nanowrimo
     end
 
     # Returns the values for all attributes for a given WCAPI type's history
-    def load_history
-      self.history = Nanowrimo.parse(load_history_field,id,self.class::HISTORY_FIELDS)
+    def load_history(options={:force => false})
+      self.history = Nanowrimo.parse(load_history_field,id,self.class::HISTORY_FIELDS,{
+        :force => options[:force]
+      })
       if maybe_error = self.history.first
         self.error = maybe_error[:error]
       end
