@@ -18,11 +18,13 @@ Features:
 * API handles generated error messages from the WCAPI
 * Page scraping place for basic user data from the profile page
 * Caches data to avoid November bandwidth issues
+* Caching is somewhat smart, with the ability to bypass it if there's a problem with cached data, and also the ability to completely clear all current cached data.
+* Errors from the WCAPI are handled gracefully.
 
 Problems:
 * The Genres API on Nanowrimo.org is a little broken right now, so there's not much data to be loaded.
 * Page scraping is dumb and costly. And the data I get is minimal. Submitted request for new API features with Nanowrimo.org crew.
-* Caching is still fairly immature in this package. Need to tune it further before November hits.
+* Caching is still fairly immature in this package, but getting bettar.
 
 == SYNOPSIS:
 

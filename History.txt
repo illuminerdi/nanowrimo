@@ -1,3 +1,10 @@
+=== 0.7.7 / 2009-06-11
+
+* 2 minor enhancements
+
+  * Nanowrimo::Cache::clear_cache - empties out the cache currently in memory.
+  * More caching goodness - Nanowrimo::Core#load and Nanowrimo::Core#load_history now support an options hash, the only option available being the ability to bypass any cached data for a given load and pull from WCAPI instead.
+
 === 0.7.5 / 2009-06-02
 
 * 1 minor enhancement
