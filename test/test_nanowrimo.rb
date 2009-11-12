@@ -28,7 +28,7 @@ class TestNanowrimo < Test::Unit::TestCase
     path = "wc"
     key = 240659
     file = "test/fixtures/user_wc.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     actual = Nanowrimo.data_from_internets(path, key, attribs).first
     expected = {
       :uid => "240659",
@@ -43,7 +43,7 @@ class TestNanowrimo < Test::Unit::TestCase
     path = "wc"
     key = 240659
     file = "test/fixtures/user_wc.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     actual = Nanowrimo.parse(path, key, attribs).first
     expected = {
       :uid => "240659",
@@ -59,7 +59,7 @@ class TestNanowrimo < Test::Unit::TestCase
     key = 240659
     file = "test/fixtures/user_wc.xml"
     File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     Nanowrimo.data_from_internets(path, key, attribs)
     FakeWeb.clean_registry
     actual = Nanowrimo.data_from_cache(path, key).first
@@ -77,7 +77,7 @@ class TestNanowrimo < Test::Unit::TestCase
     key = 240659
     file = "test/fixtures/user_wc.xml"
     File.delete(Nanowrimo::Cache::CACHE_FILE) if File.exist?(Nanowrimo::Cache::CACHE_FILE)
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     Nanowrimo.parse(path, key, attribs)
     FakeWeb.clean_registry
     actual = {}
@@ -97,7 +97,7 @@ class TestNanowrimo < Test::Unit::TestCase
     path = "wchistory/wordcounts/wcentry"
     key = 240659
     file = "test/fixtures/user_wc_history.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wchistory/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wchistory/#{key}", :body => file)
     data = Nanowrimo.parse(path, key, attribs)
     assert_equal 30, data.size
     data.each do |d|
@@ -112,7 +112,7 @@ class TestNanowrimo < Test::Unit::TestCase
     path = "wc"
     key = 999999
     file = "test/fixtures/user_wc_error.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     actual = Nanowrimo.data_from_internets(path, key, attribs).first
     expected = {
       :error => "user not found or is inactive"
@@ -125,7 +125,7 @@ class TestNanowrimo < Test::Unit::TestCase
     path = "wc"
     key = 999999
     file = "test/fixtures/user_wc_error.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/#{key}", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wc/#{key}", :body => file)
     data = Nanowrimo.parse(path, key, attribs)
     FakeWeb.clean_registry
     assert_raise FakeWeb::NetConnectNotAllowedError do

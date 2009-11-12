@@ -2,6 +2,9 @@
 
 * http://nanowrimo.rubyforge.org
 * http://github.com/illuminerdi/nanowrimo
+
+With special thanks to the folks at:
+
 * http://www.nanowrimo.org
 
 == DESCRIPTION:
@@ -53,7 +56,7 @@ Problems:
 == REQUIREMENTS:
 
 * ruby 1.8.6
-* mechanize 0.9.2
+* mechanize 0.9.3
 
 == INSTALL:
 

@@ -21,7 +21,7 @@ class TestSite < Test::Unit::TestCase
 
   def test_site_loads_data
     file = 'test/fixtures/site_wc.xml'
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcstatssummary", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcstatssummary", :body => file)
     @site.load
     Nanowrimo::Site::FIELDS.each do |f|
       assert @site.send(:"#{f}"), "Failed on #{f}"
@@ -30,7 +30,7 @@ class TestSite < Test::Unit::TestCase
 
   def test_site_loads_historical_data
     file = 'test/fixtures/site_wc_history.xml'
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcstats", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcstats", :body => file)
     @site.load_history
     assert @site.history
     assert_equal 30, @site.history.size

@@ -21,7 +21,7 @@ class TestGenre < Test::Unit::TestCase
 
   def test_genre_loads_current_data
     file = 'test/fixtures/genre_wc.xml'
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcgenre/13", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcgenre/13", :body => file)
     @genre.load
     Nanowrimo::Genre::FIELDS.each do |f|
       assert @genre.send(:"#{f}")
@@ -30,7 +30,7 @@ class TestGenre < Test::Unit::TestCase
 
   def test_genre_loads_historical_data
     file = 'test/fixtures/genre_wc_history.xml'
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcgenrehist/13", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcgenrehist/13", :body => file)
     @genre.load_history
     assert @genre.history
     # So...
@@ -43,7 +43,7 @@ class TestGenre < Test::Unit::TestCase
   def test_unknown_genre_produces_error_data
    bad_genre = Nanowrimo::Genre.new("999999")
    file = "test/fixtures/genre_wc_error.xml"
-   FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcgenre/999999", :file => file)
+   FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcgenre/999999", :body => file)
    bad_genre.load
    assert bad_genre.has_error?
    assert_equal "genre not found", bad_genre.error
@@ -52,7 +52,7 @@ class TestGenre < Test::Unit::TestCase
   def test_unknown_genre_produces_historical_error_data
     bad_genre = Nanowrimo::Genre.new("999999")
     file = "test/fixtures/genre_wc_history_error.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wcgenrehist/999999", :file => file)
+    FakeWeb.register_uri(:any, "#{Nanowrimo::API_URI}/wcgenrehist/999999", :body => file)
     bad_genre.load_history
     assert bad_genre.has_error?
     assert_equal "genre not found", bad_genre.error
