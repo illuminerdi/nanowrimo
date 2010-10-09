@@ -1,28 +1,13 @@
-HTTP/1.0 200 OK
-Date: Wed, 11 Nov 2009 23:02:22 GMT
-Server: Apache/2.2.9 (Debian) mod_jk/1.2.26 PHP/5.2.11
-X-Powered-By: PHP/5.2.11
-Set-Cookie: SESS168a4567cf5c8b98cb0798ff78a4ae15=33c93b4e3318f1a5f9070a8fa586a7a7; path=/; domain=.nanowrimo.org
-Expires: Sun, 19 Nov 1978 05:00:00 GMT
-Last-Modified: Wed, 11 Nov 2009 23:02:22 GMT
-Cache-Control: no-store, no-cache, must-revalidate
-Cache-Control: post-check=0, pre-check=0
-Vary: Accept-Encoding
-Content-Type: text/html; charset=utf-8
-X-Cache: MISS from ec2-174-129-4-71.compute-1.amazonaws.com
-X-Cache-Lookup: MISS from ec2-174-129-4-71.compute-1.amazonaws.com:80
-Via: 1.1 ec2-174-129-4-71.compute-1.amazonaws.com:80 (squid/2.7.STABLE3)
-Connection: close
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="eng" xml:lang="eng">
 
 <head>
   <title>hollowedout | National Novel Writing Month</title>
+  <meta name='description' content='Thirty days and nights of literary abandon' />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="/sites/all/themes/nanowrimo/favicon.ico" type="image/x-icon" />
   <style type="text/css" media="all">@import "/sites/all/themes/default/style.css";</style>
-<style type="text/css" media="all">@import "/sites/all/modules/nanowrimo_subscriptions/nanowrimo_subscriptions.css";</style>
+<style type="text/css" media="all">@import "/modules/aggregator/aggregator.css";</style>
 <style type="text/css" media="all">@import "/modules/book/book.css";</style>
 <style type="text/css" media="all">@import "/modules/node/node.css";</style>
 <style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
@@ -39,10 +24,10 @@ Connection: close
 <script type="text/javascript" src="/misc/drupal.js"></script>
 <script type="text/javascript" src="/sites/all/themes/default/default.js"></script>
 <script type="text/javascript" src="/sites/all/modules/oll_author_search/oll_author_search.js"></script>
-<script type="text/javascript" src="/sites/all/modules/nanowrimo_subscriptions/nanowrimo_subscriptions.js"></script>
 <script type="text/javascript" src="/sites/all/themes/nanowrimo/nanowrimo.js"></script>
 <script type="text/javascript" src="/sites/all/modules/img_assist/img_assist.js"></script>
-<script type="text/javascript">Drupal.extend({ settings: { "menu_items_to_remove": [ "/eng/user/0/subscriptions/privatemsg" ], "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|avi|csv|doc|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xml|zip", "LegacyVersion": 0 } } });</script>
+<script type="text/javascript" src="/sites/all/modules/jquery_update/compat.js"></script>
+<script type="text/javascript">Drupal.extend({ settings: { "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|avi|csv|doc|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xml|zip", "LegacyVersion": 0 } } });</script>
 <script type="text/javascript">var BASE_URL = "/";</script>
   <!--
   /***********************************************
@@ -52,6 +37,10 @@ Connection: close
   ***********************************************/
   -->
   <script type="text/javascript"> </script>
+  <!-- validate with google webmaster tools -->
+  <meta name="google-site-verification" content="3wYnFm4pEPDHpGcGeYbq8BFtb2t91DIUEZBwOyUYlnc" />
+  <!-- include a meta for facebook sharing -->
+  <link rel="image_src" href="/sites/all/themes/nanowrimo/images/share_logo.png" />
 </head>
 
 <body>
@@ -86,75 +75,83 @@ Connection: close
 
   <!-- *** Primary Navigation *** -->
   <div id="nav">
-    <li class="expanded"><a href="/">Home</a>
-<ul class="menu">
-<li class="leaf"><a href="/eng/breakingnews" title="Breaking News">Breaking News</a></li>
-<li class="leaf"><a href="/eng/dailynanoqa">Daily NaNo Q&amp;A</a></li>
-<li class="leaf"><a href="/eng/1000words">Procrastination Station</a></li>
-
-</ul>
-</li>
-<li class="expanded"><a href="/eng/whatisnano">About</a>
+    <li class="expanded"><a href="/eng/whatisnano">About</a>
 <ul class="menu">
 <li class="leaf"><a href="/eng/whatisnano" title="What is NaNoWriMo?">What is NaNoWriMo?</a></li>
 <li class="leaf"><a href="/eng/hownanoworks" title="How NaNoWriMo Works">How NaNoWriMo Works</a></li>
-<li class="leaf"><a href="/eng/halos">NaNoWriMo Is Brought To You By...</a></li>
-<li class="leaf"><a href="/eng/mediakit">Media Kit + Press Clips</a></li>
-<li class="leaf"><a href="/eng/wheredonationsgo" title="Where Your Donations Go">Where Your Donations Go</a></li>
-<li class="leaf"><a href="/eng/node/1003232">Becoming a Municipal Liaison</a></li>
-<li class="leaf"><a href="/eng/donatingwhenbroke">Donating When Broke</a></li>
-<li class="leaf"><a href="/eng/sponsorship">Get Sponsored!</a></li>
 <li class="leaf"><a href="/eng/history" title="History">History</a></li>
+<li class="leaf"><a href="/eng/mediakit">Media Kit + Press Clips</a></li>
+<li class="leaf"><a href="/eng/halos">NaNoWriMo Is Brought To You By...</a></li>
 <li class="leaf"><a href="/eng/helpwanted">Help Wanted</a></li>
 <li class="leaf"><a href="/eng/staff">Staff</a></li>
 <li class="leaf"><a href="/eng/contact">Contact</a></li>
 
 </ul>
 </li>
-<li class="leaf"><a href="/eng/search/google">Search</a></li>
-<li class="leaf"><a href="/eng/mynanowrimo" title="My NaNoWriMo">My NaNoWriMo</a></li>
-<li class="expanded"><a href="/eng/faq">FAQs</a>
+<li class="expanded"><a href="/eng/faq">FAQ</a>
 <ul class="menu">
-<li class="leaf"><a href="/eng/faq">FAQ</a></li>
+<li class="leaf"><a href="/eng/node/3699214">NaNo in a Nutshell</a></li>
+<li class="leaf"><a href="/eng/faq/2535">NaNo Basics</a></li>
+<li class="leaf"><a href="/eng/faq/2536">Novel-Writing Guidelines</a></li>
+<li class="leaf"><a href="/eng/faq/2537">Profiles, User Accounts, and Passwords</a></li>
+<li class="leaf"><a href="/eng/faq/2538">Forums and NaNoMail</a></li>
+<li class="leaf"><a href="/eng/faq/2539">Donations</a></li>
+<li class="leaf"><a href="/eng/faq/2540">Miscellaneous</a></li>
+
+</ul>
+</li>
+<li class="leaf"><a href="/eng/oll/my_site" title="My NaNoWriMo">My NaNoWriMo</a></li>
+<li class="expanded"><a href="/eng/forum">Forums</a>
+<ul class="menu">
 <li class="leaf"><a href="/eng/forumguide">Cybele&#039;s Guide to the Forums</a></li>
 
 </ul>
 </li>
-<li class="expanded"><a href="/eng/webbadges">Fun Stuff</a>
+<li class="expanded"><a href="/eng/peptalks2010">Fun Stuff</a>
 <ul class="menu">
-<li class="leaf"><a href="http://blog.nanowrimo.org">NaNoWriMo Blog</a></li>
+<li class="leaf"><a href="/eng/peptalks2010">Pep Talks</a></li>
 <li class="leaf"><a href="/eng/webbadges">Web Badges</a></li>
-<li class="leaf"><a href="/eng/peptalks2009">Pep Talks</a></li>
 <li class="leaf"><a href="/eng/wordcount_stats">Word Count Scoreboard</a></li>
-<li class="leaf"><a href="/eng/offers">Special Offers</a></li>
-<li class="leaf"><a href="/eng/contest/donation_derby">Donation Derby</a></li>
-<li class="leaf"><a href="/eng/node/1005807">Flyers for Downloading</a></li>
+<li class="leaf"><a href="/eng/node/402996">Special Offers</a></li>
 <li class="leaf"><a href="/eng/wordcount_api">Word Count API</a></li>
 <li class="leaf"><a href="/eng/widgets">Word Count Widgets</a></li>
-<li class="leaf"><a href="http://www.flickr.com/groups/nanowrimo">Flickr</a></li>
 <li class="leaf"><a href="/eng/pep">Pep Talk Archive</a></li>
 <li class="leaf"><a href="/eng/archives">Site Archive</a></li>
 
 </ul>
 </li>
-<li class="expanded"><a href="http://store.lettersandlight.org">Donation/Store</a>
+<li class="expanded"><a href="http://store.lettersandlight.org">Donations/Store</a>
 <ul class="menu">
 <li class="leaf"><a href="http://store.lettersandlight.org/">Donations</a></li>
 <li class="leaf"><a href="http://store.lettersandlight.org/merchandise">Store</a></li>
+<li class="leaf"><a href="/eng/donatingwhenbroke">Donating When Broke</a></li>
+<li class="leaf"><a href="/eng/sponsorship">Get Sponsored!</a></li>
+<li class="leaf"><a href="/eng/contest/donation_derby">Donation Derby</a></li>
+<li class="leaf"><a href="/eng/wheredonationsgo" title="Where Your Donations Go">Where Your Donations Go</a></li>
 
 </ul>
 </li>
-<li class="leaf"><a href="/eng/forum">Forums</a></li>
-<li class="expanded"><a href="/eng/ywp" title="More from OLL">More from OLL</a>
+<li class="expanded"><a href="/eng/%252Flibrary">NaNo Near You</a>
 <ul class="menu">
+<li class="leaf"><a href="/eng/%252Fog">Find Your Region</a></li>
+<li class="leaf"><a href="/eng/mls">Becoming a Municipal Liaison</a></li>
 <li class="leaf"><a href="/eng/library">Come Write In: Libraries</a></li>
 <li class="leaf"><a href="/eng/bookstores">Come Write In: Independent Bookstores</a></li>
+<li class="leaf"><a href="/eng/nanouniversity">NaNo University</a></li>
+<li class="leaf"><a href="/eng/node/1005807">Flyers</a></li>
+
+</ul>
+</li>
+<li class="expanded"><a href="/eng/ywp" title="More from OLL">More from OLL</a>
+<ul class="menu">
 <li class="leaf"><a href="/eng/ywp">Young Writers Program</a></li>
-<li class="leaf"><a href="/eng/writeathon">November 22 Write-a-thon</a></li>
+<li class="leaf"><a href="/eng/bookdrive">The Great NaNoWriMo Book Drive</a></li>
+<li class="leaf"><a href="/eng/writeathon">November 21 Write-a-thon</a></li>
 <li class="leaf"><a href="/eng/scriptfrenzy">April&#039;s Script Frenzy</a></li>
 
 </ul>
 </li>
+<li class="leaf"><a href="/eng/search/google">Search</a></li>
   </div>
   <!-- END Primary Navigation -->
 
@@ -170,7 +167,7 @@ Connection: close
 <div id='SidebarNav' class='NaNoBox'>
 <div class="NaNoBoxTop"><div></div></div>
 
-<a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a>
+
 <div class="authorphoto">
   <div class="picture"><a href="/eng/user/240659" title="View user profile." class="active"><img src="/files/main/pictures/picture-240659.jpg" alt="hollowedout&#039;s picture" title="hollowedout&#039;s picture"  /></a></div></div>
 
@@ -208,7 +205,7 @@ Connection: close
 <span class="label">Genre: </span> Mainstream Fiction
   </div>
   <div class="wordsofar">
-    <span class="wordssofarNum">28,292</span> words so far &nbsp; <img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="28292 Written" width="56" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="21708 Remaining" width="44" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" />  </div>
+    <span class="wordssofarNum">0</span> words so far &nbsp; <img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" />  </div>
  </div>
 <p></p>
 
@@ -240,7 +237,8 @@ Connection: close
       <p><span class="label">NaNoWriMo History:</span><br class="years" />
       <img src="/sites/all/themes/nanowrimo/images/yearwon_07.gif" border="0" alt="'07" title="Won in '07">
 <img src="/sites/all/themes/nanowrimo/images/yearwon_08.gif" border="0" alt="'08" title="Won in '08">
-<p><span class="label">NaNoWriMo posts:</span> 2 </p>
+<img src="/sites/all/themes/nanowrimo/images/yearwon_09.gif" border="0" alt="'09" title="Won in '09">
+<p><span class="label">NaNoWriMo posts:</span> 0 </p>
       <p><span class="label">NaNoWriMo buddies:</span> 12</p>
       <p>&nbsp;</p>
     </div></td>
@@ -262,10 +260,7 @@ Connection: close
 <div  id="tcontent2" class="tabcontent">
   <div class="excerpt">
     <div class="coffee">
-    <div class="synopsis">
-<h6 class="novel">Synopsis: Come to Call</h6>
-<p>Go read Dumas' Count of Monte Cristo. Then listen to Nine Inch Nails' The Becoming about 1,000 times. Then think about how much of our national debt is owned by China. Then punch yourself in the junk. A lot. With brass knuckles. And ... THERE! That's about it. Can't wait to read it, right?</p>
-</div>
+    <h5>Novel Info is not available for this Author.</h5>
     </div>
   </div>
 </div>
@@ -275,110 +270,64 @@ Connection: close
 <div class="buddies">
   <h3>hollowedout's Writing Buddies</h3>
       <table border="0" width="500px" cellspacing="0" cellpadding="0" >
-	<tr valign="top">
-		<td  width="250px">
-		<table width="250px" class="buddyside">
+    <tr valign="top">
+    <td width="250px">
+      <table width="250px" class="buddyside">
       <tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a><br />
-<a href="/eng/user/94450">lheannon</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="10333 Written" width="20" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="39667 Remaining" width="80" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />10,333 / 50,000</td>
+<a href="/eng/user/94450" title="View user profile.">lheannon</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a><br />
-<a href="/eng/user/139709">nightblade</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="8123 Written" width="16" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="41877 Remaining" width="84" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />8,123 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/139709" title="View user profile.">nightblade</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/229531">Pennstance</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="12556 Written" width="25" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="37444 Remaining" width="75" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />12,556 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/229531" title="View user profile.">Pennstance</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/240149">jkeene</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title=" Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/240149" title="View user profile.">jkeene</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a><br />
-<a href="/eng/user/245095">hinge1492</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="17170 Written" width="34" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="32830 Remaining" width="66" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />17,170 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/245095" title="View user profile.">hinge1492</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/309620">LegendWrite</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="10103 Written" width="20" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="39897 Remaining" width="80" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />10,103 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/309620" title="View user profile.">LegendWrite</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-   	</table>
-		</td>
+      </table>
+    </td>
     <td width="3px" class="divide"></td>
-		<td  width="250px" >
-    <table width="250px" class="buddyside">
-      <tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a><br />
-<a href="/eng/user/126776">seattlekos</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="17635 Written" width="35" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="32365 Remaining" width="65" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />17,635 / 50,000</td>
+    <td width="250px">
+      <table width="250px" class="buddyside">
+      <tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/126776" title="View user profile.">seattlekos</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/208549">knoppy44</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="25169 Written" width="50" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="24831 Remaining" width="50" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />25,169 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/208549" title="View user profile.">knoppy44</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/236224">gnomishninja</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="10135 Written" width="20" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="39865 Remaining" width="80" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />10,135 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/236224" title="View user profile.">gnomishninja</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/244939">LesaDragon</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title=" Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/244939" title="View user profile.">LesaDragon</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/301080">InfiniteLoop</a></td>
-<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="10200 Written" width="20" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="39800 Remaining" width="80" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />10,200 / 50,000</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="/eng/user/301080" title="View user profile.">InfiniteLoop</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
 </tr>
-			</table>
-			</td>
+<tr valign="bottom"><td align="right" valign="middle" class="buddy"><a href="http://store.lettersandlight.org/" class="halo"><img src="/sites/all/themes/nanowrimo/profile/haloIcon-buddy.gif" align="middle" border="0" alt="Glowing Halo" title="NaNoWriMo Donor" /></a><br />
+<a href="/eng/user/405136" title="View user profile.">Gemini4t</a></td>
+<td align="left" class="wordcount"><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_l.gif" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_completed.gif" title="0 Written" width="0" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_remaining.gif" title="50000 Remaining" width="100" height="14" /><img src="/sites/all/themes/nanowrimo/wordcount/progress_end_r.gif" height="14" /><br />0 / 50,000</td>
+</tr>
+      </table>
+    </td>
     </tr>
-  </table>
+      </table>
   	</div>
 </div>
 <!--END TAB 3 -->
 <!--START TAB 4 -->
 <div id="tcontent4" class="tabcontent">
   <div class="stats">
-  <center>
-<div class="swf_chart">
-    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-      codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-      width="400"
-      height="300"
-      id="charts"
-    >
-    <param name=movie value="http://www.nanowrimo.org/sites/all/modules/swfcharts/charts/charts.swf?library_path=http://www.nanowrimo.org/sites/all/modules/swfcharts/charts/charts_library&xml_source=http://www.nanowrimo.org/files/main/swfcharts/e6be2fcf705f7632bff7877baf6d8cdd.xml&license=G1XZ773RX9-L6-O5T4Q79KLYCK07EK">
-    <param name=quality value=400>
-    <param name=bgcolor value=#FFFFFF>
-    <embed src="http://www.nanowrimo.org/sites/all/modules/swfcharts/charts/charts.swf?library_path=http://www.nanowrimo.org/sites/all/modules/swfcharts/charts/charts_library&xml_source=http://www.nanowrimo.org/files/main/swfcharts/e6be2fcf705f7632bff7877baf6d8cdd.xml&license=G1XZ773RX9-L6-O5T4Q79KLYCK07EK"
-      quality=high
-      bgcolor=#FFFFFF
-      width="400"
-      height="300"
-      name="charts"
-      align=""
-      swliveconnect="false"
-      type="application/x-shockwave-flash"
-      pluginspage="http://www.macromedia.com/go/getflashplayer">
-    </embed>
-    </object>
-  </div><!-- end swf_chart--></center>
+  <h3>No wordcount stats yet for this Author</h3>
 <br />
-<center>
-<div class="swf_chart">
-    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-      codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-      width="400"
-      height="300"
-      id="charts"
-    >
-    <param name=movie value="http://www.nanowrimo.org//sites/all/modules/swfcharts/charts/charts.swf?library_path=http://www.nanowrimo.org//sites/all/modules/swfcharts/charts/charts_library&xml_source=http://www.nanowrimo.org//files/main/swfcharts/22ae59157102fea48e79ebd4b35ebe51.xml&license=G1XZ773RX9-L6-O5T4Q79KLYCK07EK">
-    <param name=quality value=400>
-    <param name=bgcolor value=#FFFFFF>
-    <embed src="http://www.nanowrimo.org//sites/all/modules/swfcharts/charts/charts.swf?library_path=http://www.nanowrimo.org//sites/all/modules/swfcharts/charts/charts_library&xml_source=http://www.nanowrimo.org//files/main/swfcharts/22ae59157102fea48e79ebd4b35ebe51.xml&license=G1XZ773RX9-L6-O5T4Q79KLYCK07EK"
-      quality=high
-      bgcolor=#FFFFFF
-      width="400"
-      height="300"
-      name="charts"
-      align=""
-      swliveconnect="false"
-      type="application/x-shockwave-flash"
-      pluginspage="http://www.macromedia.com/go/getflashplayer">
-    </embed>
-    </object>
-  </div><!-- end swf_chart--></center>
 <br />
   </div>
 </div>
@@ -398,7 +347,7 @@ Connection: close
   <!-- *** Footer *** -->
   <div id="footerContainer">
     <p class="detailText">
-    <a href="/">Home</a> :: <a href="/eng/whatisnano">About</a> :: <a href="/eng/search/google">Search</a> :: <a href="/eng/mynanowrimo">My NaNoWriMo</a> :: <a href="/eng/faq">FAQs</a> :: <a href="/eng/webbadges">Fun Stuff</a> :: <a href="http://store.lettersandlight.org">Donation/Store</a> :: <a href="/eng/forum">Forums</a> :: <a href="/eng/ywp">More from OLL</a><br /><a href="/eng/privacypolicy">Privacy Policy</a> :: <a href="/eng/termsandconditions">Terms and Conditions</a> :: <a href="/eng/codesofconduct">Codes of Conduct</a> :: <a href="/eng/returnspolicy">Returns Policy</a><br /><br />Copyright © 2009 The Office of Letters and Light :: All posted novel excerpts remain copyright their authors.<br />
+    <a href="/eng/whatisnano">About</a> :: <a href="/eng/faq">FAQ</a> :: <a href="/eng/oll/my_site">My NaNoWriMo</a> :: <a href="/eng/forum">Forums</a> :: <a href="/eng/peptalks2010">Fun Stuff</a> :: <a href="http://store.lettersandlight.org">Donations/Store</a> :: <a href="/eng/%252Flibrary">NaNo Near You</a> :: <a href="/eng/ywp">More from OLL</a> :: <a href="/eng/search/google">Search</a><br /><a href="/eng/privacypolicy">Privacy Policy</a> :: <a href="/eng/termsandconditions">Terms and Conditions</a> :: <a href="/eng/codesofconduct">Codes of Conduct</a> :: <a href="/eng/returnspolicy">Returns Policy</a><br /><br />Copyright © 2010 The Office of Letters and Light :: All posted novel excerpts remain copyright their authors.<br />
 Powered by <a href="http://www.drupal.org">Drupal</a><br /><br />
 <a href="http://aws.amazon.com/ec2" target="_blank"><img src="/files/main/images/PBAWS_LOGO_127px.JPG" alt="" title="" class="image image-_original" width="127" height="52" /></a>
     </p>
@@ -406,10 +355,21 @@ Powered by <a href="http://www.drupal.org">Drupal</a><br /><br />
   <!-- END Footer -->
   <script type="text/javascript" src="/sites/all/modules/google_analytics/googleanalytics.js"></script>
 <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
-<script type="text/javascript">var pageTracker = _gat._getTracker("UA-635901-1");pageTracker._trackPageview();</script>
+<script type="text/javascript">try{var pageTracker = _gat._getTracker("UA-635901-1");pageTracker._trackPageview();} catch(err) {}</script>
 
 </div>
 <!-- Close Auto Container -->
+<!-- Start Quantcast tag -->
+<script type="text/javascript">
+_qoptions={
+qacct:"p-6fXNnILeFXibI"
+};
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+<img src="http://pixel.quantserve.com/pixel/p-6fXNnILeFXibI.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
 </body>
 </html>
 </div>

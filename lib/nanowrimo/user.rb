@@ -45,11 +45,7 @@ module Nanowrimo
 
     # Method to pull down a WWW::Mechanize::Page instance of the User's profile page
     def load_profile_data
-      # mechanize might be overkill, but at some point if they don't add more to the API
-      # I'll have to dig deeper behind the site's authentication layer in order to pull out
-      # some needed data.
-      agent = WWW::Mechanize.new
-      @profile_data = agent.get("#{PROFILE_URI}/#{@uid}")
+      @profile_data = Nokogiri::HTML(open("#{PROFILE_URI}/#{@uid}"))
     end
 
     # Parses the profile page data pulling out extra information for the User.
@@ -60,10 +56,16 @@ module Nanowrimo
       @buddies.reject!{|b| b.to_i == 0}
       # title and genre are in the same element
       titlegenre = @profile_data.search("div[@class='titlegenre']").text.split("Genre:")
-      @genre[:name] = titlegenre.last.strip
-      @novel[:title] = titlegenre.first.gsub('Novel:','').strip
+      unless titlegenre.empty?
+        @genre[:name] = titlegenre.last.strip
+        @novel[:title] = titlegenre.first.gsub('Novel:','').strip
+      else
+        @genre[:name] = ""
+        @novel[:title] = ""
+      end
       # finally, the region is annoying to grab
       @rid = @profile_data.search("div[@class='infoleft']//a").first['href'].split('/').last
+      nil
     end
   end
 end

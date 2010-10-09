@@ -1,7 +1,9 @@
 = nanowrimo
 
-* http://nanowrimo.rubyforge.org
+* http://nanowrimo.rubyforge.org/
+* http://rubygems.org/gems/nanowrimo
 * http://github.com/illuminerdi/nanowrimo
+* http://rubydoc.info/gems/nanowrimo/0.8.0/frames
 
 With special thanks to the folks at:
 
@@ -44,7 +46,7 @@ Problems:
   # Want to get a list of your writing buddies?
   >> me.parse_profile
   >> me.buddies
-  => ["94450", "208549", "236224", "244939", "301080", "405136", "139709", "229531", "240149", "245095", "309620"]
+  => ["94450", "208549", "236224", "244939", ...
 
   # Want an array of day-by-day progress for yourself?
   >> me.load_history
@@ -55,18 +57,18 @@ Problems:
 
 == REQUIREMENTS:
 
-* ruby 1.8.6
-* mechanize 0.9.3
+* ruby 1.8.7 or 1.9.2 (tested in both)
+* nokogiri 1.4.3.1
 
 == INSTALL:
 
-* sudo gem install nanowrimo
+* gem install nanowrimo
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 Joshua Clingenpeel
+Copyright (c) 2010 Joshua Clingenpeel
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

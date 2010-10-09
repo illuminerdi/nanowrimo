@@ -10,7 +10,7 @@ Hoe.spec 'nanowrimo' do
 
   developer 'Joshua Clingenpeel', 'joshua.clingenpeel@gmail.com'
 
-  extra_deps << ['mechanize','= 0.9.3']
+  extra_deps << ['nokogiri','= 1.4.3.1']
   extra_dev_deps << ['fakeweb','= 1.2.7']
 
   version = Nanowrimo::VERSION

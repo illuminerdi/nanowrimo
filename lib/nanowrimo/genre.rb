@@ -9,7 +9,7 @@ module Nanowrimo
     HISTORY_FIELDS = %w[wc wcdate max min stddev average count]
     attr_accessor(*FIELDS)
     attr_accessor :history
-    # creates a new Region object
+    # creates a new Genre object
     def initialize(gid)
       @gid = gid
     end

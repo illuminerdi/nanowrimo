@@ -61,8 +61,8 @@ class TestUser < Test::Unit::TestCase
   def test_user_load_profile_data
     profile_uri_setup
     @user.load_profile_data
-    assert @user.profile_data.instance_of?(WWW::Mechanize::Page)
-    assert_match(/<div id="tcontent3"/, @user.profile_data.body)
+    assert @user.profile_data.instance_of?(Nokogiri::HTML::Document)
+    assert @user.profile_data.search('#tcontent3')
   end
 
   def test_find_users_region
@@ -87,7 +87,7 @@ class TestUser < Test::Unit::TestCase
     profile_uri_setup
     @user.parse_profile
     assert @user.buddies.instance_of?(Array)
-    assert_equal 11, @user.buddies.size
+    assert_equal 12, @user.buddies.size
     assert @user.buddies.include?("245095")
   end
 
@@ -110,10 +110,7 @@ class TestUser < Test::Unit::TestCase
   end
 
   def profile_uri_setup
-    # this was a bit of weirdness - I had to curl -is the url in order to grab the headers, and
-    # even then it would register the file from FakeWeb as WWW::Mechanize::File, not WWW::Mechanize::Page
-    # discussion started at http://groups.google.com/group/fakeweb-users/browse_thread/thread/e01b6280e720ae6f
     file = File.read("test/fixtures/user_page.htm")
-    FakeWeb.register_uri(:any, "http://www.nanowrimo.org/eng/user/240659", :response => file)
+    FakeWeb.register_uri(:any, "http://www.nanowrimo.org/eng/user/240659", :body => file)
   end
 end
